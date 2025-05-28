@@ -335,7 +335,7 @@
 "Respawn": {
 "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
 "MaxFoes": 16,
-"RespawnTime": 100
+"RespawnTime": 36
 },
 "MaxFoes": 0,
 "RespawnTime": 0
@@ -991,7 +991,7 @@
 "Respawn": {
 "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
 "MaxFoes": 16,
-"RespawnTime": 100
+"RespawnTime": 36
 },
 "MaxFoes": 0,
 "RespawnTime": 0
@@ -1647,7 +1647,7 @@
 "Respawn": {
 "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
 "MaxFoes": 16,
-"RespawnTime": 100
+"RespawnTime": 36
 },
 "MaxFoes": 0,
 "RespawnTime": 0
@@ -2303,7 +2303,7 @@
 "Respawn": {
 "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
 "MaxFoes": 16,
-"RespawnTime": 100
+"RespawnTime": 36
 },
 "MaxFoes": 0,
 "RespawnTime": 0
