@@ -892,7 +892,12 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	
 	--narration
 	UI:SetAutoFinish(true)
-	GAME:FadeIn(false, 120)
+
+	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 120) end) 
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 120) end)
+	local coro3 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+	
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_1']), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_2'], player:GetDisplayName(), partner:GetDisplayName()), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_3']), -1)
@@ -901,7 +906,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_6']), -1)
 	--chapter 2 start
 	SV.Progression.Chapter = 2
-	UI:WaitFrames(120)
+	GAME:WaitFrames(120)
 	UI:SetAutoFinish(false)
 	SOUND:StopSE("Ambient/AMB_Ocean")
 	GAME:EnterGroundMap("title_catch", "Entrance")

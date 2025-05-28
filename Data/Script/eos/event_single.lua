@@ -316,10 +316,9 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 end
 
 function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) --Tutorial Script (Credit to Palika Again)
-	GAME:WaitFrames(20)
-	
 	if context.User == nil then
     UI:ResetSpeaker()
+	GAME:WaitFrames(20)
     if args.Floor == 1 then
 			if SV.beach_cave.Tutorial < 1 then
 				SOUND:PlayFanfare("Fanfare/Note")

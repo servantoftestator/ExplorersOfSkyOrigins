@@ -27,9 +27,10 @@ function beach.Init(map)
 
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
-  
-COMMON:RespawnAllies()
-PartnerEssentials.InitializePartnerSpawn()
+  if not SV.beach.Cutscene then
+	COMMON:RespawnAllies()
+	PartnerEssentials.InitializePartnerSpawn()
+  end
 end
 
 ---beach.Enter(map)
