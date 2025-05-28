@@ -2,6 +2,42 @@
 "Version": "0.8.9.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"berry_cheri": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Cheri Berry",
+"LocalTexts": {
+"fr": "Baie Ceriz",
+"de": "Amrenabeere",
+"es": "Baya Zreza",
+"pt": "Fruta Cheri",
+"it": "Baccaliegia",
+"ko": "버치열매",
+"ja": "クラボのみ",
+"ja-jp": "クラボのみ",
+"zh-hans": "樱子果",
+"zh-hant": "櫻子果"
+}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 6
+},
 "berry_pecha": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": 3,
@@ -42,6 +78,42 @@
 "Comment": "",
 "SortOrder": 6
 },
+"berry_rawst": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Rawst Berry",
+"LocalTexts": {
+"fr": "Baie Fraive",
+"de": "Fragiabeere",
+"es": "Baya Safre",
+"pt": "Fruta Rawst",
+"it": "Baccafrago",
+"ko": "복분열매",
+"ja": "チーゴのみ",
+"ja-jp": "チーゴのみ",
+"zh-hans": "莓莓果",
+"zh-hant": "莓莓果"
+}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 6
+},
 "seed_stun": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": 4,
@@ -66,6 +138,118 @@
 "Released": true,
 "Comment": "",
 "SortOrder": 7
+},
+"orb_switcher": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Switcher Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_blowback": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Blowback Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_warp": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Warp Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_transfer": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Orb Transfer",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_decoy": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Decoy Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_drought": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Drought Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_hurl": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Hurl Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
 }
 }
 }

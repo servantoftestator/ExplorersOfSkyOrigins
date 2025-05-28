@@ -10,11 +10,11 @@
 "Comment": "",
 "NoEXP": false,
 "ExpPercent": 100,
-"Level": 5,
+"Level": -1,
 "LevelCap": false,
 "KeepSkills": false,
 "TeamRestrict": false,
-"TeamSize": 4,
+"TeamSize": -1,
 "MoneyRestrict": false,
 "BagRestrict": -1,
 "KeepTreasure": false,
@@ -539,7 +539,7 @@
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
 "Amount": {
 "Min": 1,
-"Max": 9
+"Max": 4
 }
 }
 }
@@ -611,7 +611,7 @@
 "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
 "DivAmount": {
 "Min": 1,
-"Max": 5
+"Max": 4
 }
 }
 }
@@ -636,7 +636,7 @@
 "Spawn": {
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
 "Amount": {
-"Min": 1,
+"Min": 0,
 "Max": 3
 }
 }
@@ -662,7 +662,7 @@
 "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
 "Amount": {
 "Min": 2,
-"Max": 6
+"Max": 4
 }
 },
 "Ally": false,
@@ -1195,7 +1195,7 @@
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
 "Amount": {
 "Min": 1,
-"Max": 9
+"Max": 4
 }
 }
 }
@@ -1267,7 +1267,7 @@
 "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
 "DivAmount": {
 "Min": 1,
-"Max": 5
+"Max": 4
 }
 }
 }
@@ -1292,7 +1292,7 @@
 "Spawn": {
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
 "Amount": {
-"Min": 1,
+"Min": 0,
 "Max": 3
 }
 }
@@ -1318,7 +1318,7 @@
 "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
 "Amount": {
 "Min": 2,
-"Max": 6
+"Max": 4
 }
 },
 "Ally": false,
@@ -1851,7 +1851,7 @@
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
 "Amount": {
 "Min": 1,
-"Max": 9
+"Max": 4
 }
 }
 }
@@ -1948,7 +1948,7 @@
 "Spawn": {
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
 "Amount": {
-"Min": 1,
+"Min": 0,
 "Max": 3
 }
 }
@@ -1974,7 +1974,7 @@
 "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
 "Amount": {
 "Min": 2,
-"Max": 6
+"Max": 4
 }
 },
 "Ally": false,
@@ -2507,7 +2507,7 @@
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
 "Amount": {
 "Min": 1,
-"Max": 9
+"Max": 4
 }
 }
 }
@@ -2604,8 +2604,8 @@
 "Spawn": {
 "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
 "Amount": {
-"Min": 1,
-"Max": 3
+"Min": 0,
+"Max": 4
 }
 }
 }
@@ -2630,7 +2630,7 @@
 "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
 "Amount": {
 "Min": 2,
-"Max": 6
+"Max": 4
 }
 },
 "Ally": false,
@@ -2687,51 +2687,8 @@
 ]
 },
 "Spawns": {
-"berries": {
+"consumables": {
 "Spawns": [
-{
-"Spawn": {
-"ID": "berry_oran",
-"Cursed": false,
-"HiddenValue": "",
-"Amount": 0,
-"Price": 0
-},
-"Rate": 10,
-"Range": {
-"Min": 1,
-"Max": 2
-}
-}
-],
-"SpawnRates": {
-"nodes": [
-{
-"Item": 1,
-"Range": {
-"Min": 1,
-"Max": 2
-}
-}
-]
-}
-},
-"seeds": {
-"Spawns": [
-{
-"Spawn": {
-"ID": "ammo_cacnea_spike",
-"Cursed": false,
-"HiddenValue": "",
-"Amount": 0,
-"Price": 0
-},
-"Rate": 10,
-"Range": {
-"Min": 0,
-"Max": 1
-}
-},
 {
 "Spawn": {
 "ID": "seed_blast",
@@ -2759,6 +2716,20 @@
 "Min": 2,
 "Max": 4
 }
+},
+{
+"Spawn": {
+"ID": "berry_oran",
+"Cursed": false,
+"HiddenValue": "",
+"Amount": 0,
+"Price": 0
+},
+"Rate": 10,
+"Range": {
+"Min": 1,
+"Max": 2
+}
 }
 ],
 "SpawnRates": {
@@ -2766,7 +2737,7 @@
 {
 "Item": 1,
 "Range": {
-"Min": 2,
+"Min": 1,
 "Max": 4
 }
 }
@@ -2872,24 +2843,20 @@
 "Spawn": {
 "Spawn": {
 "BaseForm": {
-"Species": "corsola",
+"Species": "shellos",
 "Form": 0,
 "Skin": "",
 "Gender": -1
 },
 "Level": {
-"Min": 1,
-"Max": 3
+"Min": 2,
+"Max": 2
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -2903,14 +2870,14 @@
 "Spawn": {
 "Spawn": {
 "BaseForm": {
-"Species": "shellos",
-"Form": -1,
+"Species": "corsola",
+"Form": 0,
 "Skin": "",
 "Gender": -1
 },
 "Level": {
-"Min": 1,
-"Max": 3
+"Min": 2,
+"Max": 2
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",

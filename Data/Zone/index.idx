@@ -65,11 +65,11 @@ null,
 "beach_cave": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
 "ExpPercent": 100,
-"Level": 5,
+"Level": -1,
 "LevelCap": false,
 "KeepSkills": false,
 "TeamRestrict": false,
-"TeamSize": 4,
+"TeamSize": -1,
 "MoneyRestrict": false,
 "BagRestrict": -1,
 "KeepTreasure": false,
@@ -148,7 +148,10 @@ null,
 "Rescues": 0,
 "CountedFloors": 6,
 "Rogue": 0,
-"Grounds": [],
+"Grounds": [
+"drenched_bluff_entrance",
+"drenched_bluff_end"
+],
 "Maps": [
 [
 0,
@@ -200,6 +203,49 @@ null,
 },
 "Released": true,
 "Comment": "treasure town, guild, and beach. ground map only",
+"SortOrder": 0
+},
+"mt_bristle": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 10,
+"Rogue": 0,
+"Grounds": [
+"mt_bristle_entrance",
+"mt_bristle_peak"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8
+],
+[
+0
+]
+],
+"Name": {
+"DefaultText": "Mt. Bristle",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
 "SortOrder": 0
 }
 }
