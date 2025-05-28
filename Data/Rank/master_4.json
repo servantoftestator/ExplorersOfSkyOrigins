@@ -1,0 +1,14 @@
+﻿{
+"Version": "0.8.9.0",
+"Object": {
+"$type": "RogueEssence.Data.RankData, RogueEssence",
+"Name": {
+"DefaultText": "Master \\uE10C\\uE10C\\uE10C",
+"LocalTexts": {}
+},
+"Comment": "",
+"BagSize": 48,
+"FameToNext": 75000,
+"Next": "guildmaster"
+}
+}
