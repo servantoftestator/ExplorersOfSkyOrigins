@@ -27,7 +27,12 @@ function beach.Init(map)
 
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
-  if not SV.beach.Cutscene then
+  if SV.Progression.Chapter == 1  then
+
+
+  else
+	SOUND:LoopSE("Ambient/AMB_Ocean")
+	GAME:FadeIn(20)
 	COMMON:RespawnAllies()
 	PartnerEssentials.InitializePartnerSpawn()
   end
@@ -37,16 +42,16 @@ end
 --Engine callback function
 function beach.Enter(map)
 
-  --Normal Entry
-  if not SV.beach.Cutscene then
-	GAME:FadeIn(20)
-	SOUND:FadeInSE("Ambient/AMB_Ocean", 20)
-	--Handle NPCs based on progression
-  else
+  if SV.Progression.Chapter == 1 then
 	--Cutscenes
 	if SV.Progression.Chapter == 1 then --1 cutscene in ch1
 		beach.HeroPassesOut()
 	end
+  --Normal Entry
+  else
+	GAME:FadeIn(20)
+	SOUND:FadeInSE("Ambient/AMB_Ocean", 20)
+	--Handle NPCs based on progression
   end
 --SOUND:LoopSE("Ambient/AMB_Ocean")
 end

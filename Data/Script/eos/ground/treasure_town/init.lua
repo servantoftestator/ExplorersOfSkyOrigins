@@ -68,9 +68,9 @@ function treasure_town.Enter(map)
         end
         if SV.Progression.SectionFlag == 8 then
 	-- player entered sharpedo bluff reset character positons for drowzee cutscene
-	GROUND:TeleportTo(Drowzee, 814, 138, Direction.Right)
-        GROUND:TeleportTo(Azurill, 842, 160, Direction.Left)
-        GROUND:TeleportTo(Marill, 842, 138, Direction.Left)
+	GROUND:TeleportTo(Drowzee, 818, 136, Direction.Right)
+        GROUND:TeleportTo(Azurill, 850, 136, Direction.Left)
+        GROUND:TeleportTo(Marill, 850, 155, Direction.Left)
         end
 
 
@@ -982,7 +982,7 @@ end
 
 function treasure_town.CH3AzumarillScene1()
 
-	local Apple = OBJ('Apple_Red')
+	Apple_Red = OBJ('Apple_Red')
 	player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
 	local hTalkKind = SV.Personality.HeroTalkKind
@@ -1096,11 +1096,14 @@ function treasure_town.CH3AzumarillScene1()
 	--azurill trip emote
 	GROUND:CharSetEmote(player, "shock", 1)
 	GROUND:CharSetEmote(Kecleon, "shock", 1)
-	GROUND:TeleportTo(Apple, 410, 200, Direction.Down)
-	GROUND:TeleportTo(Apple, Apple.Position.X - 30, Apple.Position.Y - 16, Direction.Down)
-	GROUND:TeleportTo(Apple, Apple.Position.X - 50, Apple.Position.Y, Direction.Down)
+	GROUND:TeleportTo(Apple_Red, 410, 200, Direction.Down)
+	GAME:WaitFrames(40)
+	GROUND:TeleportTo(Apple_Red, Apple_Red.Position.X - 30, Apple_Red.Position.Y - 16, Direction.Down)
+	GAME:WaitFrames(40)
+	GROUND:TeleportTo(Apple_Red, Apple_Red.Position.X - 50, Apple_Red.Position.Y, Direction.Down)
+	GAME:WaitFrames(40)
 	--playgrab apple animation
-	GROUND:MoveToPosition(player, Apple.Position.X, Apple.Position.Y, false, 1)
+	GROUND:MoveToPosition(player, Apple_Red.Position.X, Apple_Red.Position.Y, false, 1)
 	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
 	GROUND:Hide("Apple_Red")
 	GROUND:MoveToPosition(Azurill, player.Position.X + 24, player.Position.Y, false, 1)
@@ -1185,9 +1188,9 @@ function treasure_town.CH3AzumarillScene1()
         --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
 	GROUND:MoveToPosition(Azurill, Azurill.Position.X + 430, Azurill.Position.Y, false, 1)
         GROUND:MoveToPosition(Marill, Marill.Position.X + 450, Marill.Position.Y, false, 1)
-	GROUND:TeleportTo(Drowzee, 814, 130, Direction.Right)
-        GROUND:TeleportTo(Azurill, 842, 160, Direction.Left)
-        GROUND:TeleportTo(Marill, 842, 130, Direction.Left)
+	GROUND:TeleportTo(Drowzee, 818, 136, Direction.Right)
+        GROUND:TeleportTo(Azurill, 850, 136, Direction.Left)
+        GROUND:TeleportTo(Marill, 850, 155, Direction.Left)
 	GAME:MoveCamera(0, 0, 1, true)
 	--UI:SetSpeaker(partner)
 	--UI:SetSpeakerEmotion("Happy")
