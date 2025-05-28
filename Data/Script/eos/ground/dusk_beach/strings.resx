@@ -203,10 +203,7 @@
     <value>(It's...it's true!)</value>
   </data>
   <data name="CH1_S1_Hero_6" xml:space="preserve">
-    <value>(I've turned into a {0}!)</value>
-  </data>
-  <data name="CH1_S1_Hero_6_Alt" xml:space="preserve">
-    <value>(I've turned into an {0}!)</value>
+    <value>(I've turned into [a/an] {0}!)</value>
   </data>
   <data name="CH1_S1_Hero_7" xml:space="preserve">
     <value>(...But how did this happen?[pause=0] I don't remember anything...)</value>
@@ -235,7 +232,7 @@
   <data name="Name_Prompt" xml:space="preserve">
     <value>What is your name?</value>
   </data>
-   <data name="Name_Confirm" xml:space="preserve">
+  <data name="Name_Confirm" xml:space="preserve">
     <value>Is the name {0} OK?</value>
   </data>
   <data name="CH1_S1_Partner_24_0" xml:space="preserve">

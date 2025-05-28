@@ -325,15 +325,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_5']))
-	
-	local first_letter = string.upper(string.sub(player.CurrentForm.Species, 1, 1)) --thanks palika :pray:
-	
-	if first_letter == "A" or first_letter == "E" or first_letter == "I" or first_letter == "O" or first_letter == "U" then
-	--this shouldn't be possible in english for any default eos starters but a few custom ones need this
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_6_Alt'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
-	else
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_6'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
-	end
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_6'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
 	
 	GAME:WaitFrames(15)
 	UI:SetSpeakerEmotion("Worried")
@@ -752,7 +744,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_9']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_10']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_11_'..tostring(pTalkKind)]))
-	CharacterActions.ScaredJump(partner, Direction.Up)
+	CharacterActions.HopTwice(partner, Direction.Up)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_12_'..tostring(pTalkKind)]))
 	GROUND:CharAnimateTurn(partner, Direction.Right, 4, true)
 	UI:SetSpeakerEmotion("Normal")
@@ -900,7 +892,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	
 	--narration
 	UI:SetAutoFinish(true)
-	UI:WaitShowBG("Black", 1, 20);
+	GAME:FadeIn(false, 120)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_1']), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_2'], player:GetDisplayName(), partner:GetDisplayName()), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_3']), -1)
@@ -909,9 +901,8 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_6']), -1)
 	--chapter 2 start
 	SV.Progression.Chapter = 2
-	UI:WaitHideBG(120);
+	UI:WaitFrames(120)
 	UI:SetAutoFinish(false)
-	--GAME:CutsceneMode(false)
 	SOUND:StopSE("Ambient/AMB_Ocean")
 	GAME:EnterGroundMap("title_catch", "Entrance")
 end

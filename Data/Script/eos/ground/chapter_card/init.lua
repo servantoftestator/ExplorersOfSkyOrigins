@@ -43,6 +43,8 @@ function chapter_card.Enter(map)
 												  GAME:WaitFrames(300)
 												  UI:WaitHideBG(60) end)
   TASK:JoinCoroutines({coro1, coro2})
+
+  GAME:WaitFrames(60)
   
   if SV.Progression.Chapter == 1 then
 	GAME:EnterGroundMap("storm_cutscene_a", "Entrance")

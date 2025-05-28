@@ -39,15 +39,15 @@ function beach.Enter(map)
   --Normal Entry
   if not SV.beach.Cutscene then
 	GAME:FadeIn(20)
-	SOUND:FadeInSE("Beach_Noise", 20)
+	SOUND:FadeInSE("Ambient/AMB_Ocean", 20)
 	--Handle NPCs based on progression
   else
 	--Cutscenes
 	if SV.Progression.Chapter == 1 then --1 cutscene in ch1
 		beach.HeroPassesOut()
-    end
+	end
   end
-SOUND:LoopSE("Ambient/AMB_Ocean")
+--SOUND:LoopSE("Ambient/AMB_Ocean")
 end
 
 ---beach.Exit(map)
@@ -55,7 +55,7 @@ end
 function beach.Exit(map)
 	
 	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 20) end)
-	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Beach_Noise", 20) end)
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 20) end)
 	TASK:JoinCoroutines({coro1, coro2})
 SOUND:StopSE("Ambient/AMB_Ocean")
 GAME:FadeOut(false, 20)

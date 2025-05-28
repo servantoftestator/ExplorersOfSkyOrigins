@@ -184,4 +184,9 @@ SV.beach_cave =
 	Tutorial = 0
 }
 
+SV.drenched_bluff = 
+{
+	TimesFailed = 0 --triggers a cutscene after 3
+}
+
 ----------------------------------------------

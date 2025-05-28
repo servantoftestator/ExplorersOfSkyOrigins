@@ -52,8 +52,8 @@
 },
 "Value": {
 "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-"CellWidth": 14,
-"CellHeight": 14,
+"CellWidth": 10,
+"CellHeight": 10,
 "CellX": 3,
 "CellY": 3,
 "CellWall": 1,
@@ -708,8 +708,8 @@
 },
 "Value": {
 "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-"CellWidth": 14,
-"CellHeight": 14,
+"CellWidth": 10,
+"CellHeight": 10,
 "CellX": 3,
 "CellY": 3,
 "CellWall": 1,
@@ -1364,8 +1364,8 @@
 },
 "Value": {
 "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-"CellWidth": 14,
-"CellHeight": 14,
+"CellWidth": 10,
+"CellHeight": 10,
 "CellX": 3,
 "CellY": 3,
 "CellWall": 1,
@@ -2020,8 +2020,8 @@
 },
 "Value": {
 "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-"CellWidth": 14,
-"CellHeight": 14,
+"CellWidth": 10,
+"CellHeight": 10,
 "CellX": 3,
 "CellY": 3,
 "CellWall": 1,

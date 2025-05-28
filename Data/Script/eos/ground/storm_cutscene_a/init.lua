@@ -107,14 +107,14 @@ SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
   
   --transition
   SOUND:PlaySE("Battle/EVT_CH01_Transition")
-  local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(true, 120) end)
+  local coro1 = TASK:BranchCoroutine(function() GAME:FadeOutFront(true, 120) end)
   local coro2 = TASK:BranchCoroutine(function() UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['Unknown_6']), 120) end)
   local coro3 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Storm", 120) end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
   
   GAME:WaitFrames(180)
   
-  GAME:FadeIn(60)
+  GAME:FadeInFront(60)
   
   GAME:WaitFrames(60)
   
