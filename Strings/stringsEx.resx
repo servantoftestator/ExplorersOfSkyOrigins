@@ -1,45 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -53,33 +112,740 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TUTORIAL_1" xml:space="preserve">
     <value>Head for the stairway! As you go, you can attack enemies by pressing {0}! Enemies won't move or act until you do.</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_2" xml:space="preserve">
     <value>You can carry four items. The items you find on the floor have a variety of useful effects.</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_3" xml:space="preserve">
     <value>If you find an item, open the menu with {0}, then select the Items option to see what it does.</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_4" xml:space="preserve">
     <value>You can also open the Items menu directly with {0}.</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_5" xml:space="preserve">
     <value>In some areas, you will see a tile with a green arrow, called a Wonder Tile. Step on it to heal any stat changes.</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_6" xml:space="preserve">
     <value>Have questions about anything? You can check the controls by opening the menu with {0}, then selecting Others.</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_7" xml:space="preserve">
     <value>Team Mode will automatically activate for Boss Battles. While in Team Mode, you can control all team members!</value>
+    <comment></comment>
   </data>
   <data name="TUTORIAL_8" xml:space="preserve">
     <value>You can toggle this mode anywhere by pressing {0}.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INTRO_A" xml:space="preserve">
+    <value>Welcome to the {0} Shop! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_CONTINUE_A" xml:space="preserve">
+    <value>May I help you with anything else?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EXIT_A" xml:space="preserve">
+    <value>Thanks! Please come again! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_A" xml:space="preserve">
+    <value>Very well! Feel free to examine my merchandise! ♪ (You can use {0} to choose more than one item.)</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_MORE_A" xml:space="preserve">
+    <value>Do you wish to buy anything else today?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_ONE_A" xml:space="preserve">
+    <value>That {0}? That will be \uE024{1}\uE023. Is that to your liking?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_MANY_A" xml:space="preserve">
+    <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_CONFIRM_A" xml:space="preserve">
+    <value>Thank you! All yours! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_A" xml:space="preserve">
+    <value>Very well! What will you sell? (You can use {0} to choose multiple items.)</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_MORE_A" xml:space="preserve">
+    <value>Do you wish to sell anything else? (You can use {0} to choose multiple items.)</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_ONE_A" xml:space="preserve">
+    <value>Your {0}? I can pay you \uE024{1}\uE023 for that. Will you sell it for that price?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_MANY_A" xml:space="preserve">
+    <value>I can pay \uE024{0}\uE023 for everything. Is that acceptable?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_CONFIRM_A" xml:space="preserve">
+    <value>Done deal! Thank you! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_A_0" xml:space="preserve">
+    <value>You know...[pause=0]I'm sold out. Please forgive me.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_A_1" xml:space="preserve">
+    <value>I will have new merchandise for you tomorrow, I swear!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_NO_MONEY_A" xml:space="preserve">
+    <value>What? [pause=0]You don't seem to have the money.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_MAX_MONEY_A_0" xml:space="preserve">
+    <value>Goodness! You're overflowing with money!</value>
+    <comment>i have no idea if this is even possible in PMDO</comment>
+  </data>
+  <data name="SHOP_MAX_MONEY_A_1" xml:space="preserve">
+    <value>You couldn't possibly carry any more money!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_CANCEL_A" xml:space="preserve">
+    <value>Oh? [pause=0]Nothing to sell?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_NOTHING_A" xml:space="preserve">
+    <value>Oh?[pause=0] You don't seem to have anything!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_NO_SPACE_A" xml:space="preserve">
+    <value>Oh! [pause=0]You have no more space for items!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_A_0_ALT" xml:space="preserve">
+    <value>Uh-oh![pause=0] No more merchandise!</value>
+    <comment>can't tell if this is unused or it's supposed to be for the purple kecleon</comment>
+  </data>
+  <data name="SHOP_EMPTY_A_1_ALT" xml:space="preserve">
+    <value>I'm completely sold out!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_NO_MONEY_A_ALT" xml:space="preserve">
+    <value>Oh![pause=0] Sorry, you don't seem to have enough money!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_UNSELLABLE_A" xml:space="preserve">
+    <value>Oh my![pause=0] I couldn't possibly take that from you!</value>
+    <comment>i'm guessing this is for unique items</comment>
+  </data>
+  <data name="SHOP_MAX_MONEY_A_ALT" xml:space="preserve">
+    <value>Oh my![pause=0] You can't carry any more money! Sorry, I can't complete the deal.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_0" xml:space="preserve">
+    <value>We, the {0} Brothers, have a passion for selling items! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_1" xml:space="preserve">
+    <value>Items are useful for your dungeon adventures!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_2" xml:space="preserve">
+    <value>Use items with imagination! And invent new uses for them!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_3" xml:space="preserve">
+    <value>Ah, yes! If the shop sells out...</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_4" xml:space="preserve">
+    <value>We'll always have new things to sell on the next day!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_5" xml:space="preserve">
+    <value>So spend time in dungeons until we restock! Visit us when you return! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_6" xml:space="preserve">
+    <value>Ah, yes! You can find our {0} Markets far and wide...</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_A_7" xml:space="preserve">
+    <value>Even in dungeons! Visit us everywhere!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INTRO_B" xml:space="preserve">
+    <value>Welcome to {0} Wares, where you can find Orbs and TMs! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_CONTINUE_B" xml:space="preserve">
+    <value>May I assist you in any other way?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EXIT_B" xml:space="preserve">
+    <value>Thanks! Please come again! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_B" xml:space="preserve">
+    <value>Ah, very well! Take a look at my merchandise. All chosen with pride! ♪ (You can use {0} to choose multiple items.)</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_MORE_B" xml:space="preserve">
+    <value>Do you wish to purchase anything else?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_ONE_B" xml:space="preserve">
+    <value>That {0}? That will be \uE024{1}\uE023. Is that acceptable?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_MANY_B" xml:space="preserve">
+    <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_CONFIRM_B" xml:space="preserve">
+    <value>Thank you! Well chosen! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_B" xml:space="preserve">
+    <value>Ah, very well! What do you wish to sell? (You can use {0} to choose multiple items.)</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_MORE_B" xml:space="preserve">
+    <value>Is there anything else that you wish to sell? (You can use {0} to choose multiple items.)</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_ONE_B" xml:space="preserve">
+    <value>Your {0}? I can offer \uE024{1}\uE023. Will you sell it for that price?</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_MANY_B" xml:space="preserve">
+    <value>I will pay \uE024{0}\uE023 for everything you're offering. Is that acceptable?</value>
+  </data>
+  <data name="SHOP_SELL_CONFIRM_B" xml:space="preserve">
+    <value>We have a deal! Thank you! ♪</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_B_0" xml:space="preserve">
+    <value>You know...[pause=0]I'm sold out. So sorry, my friend.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_B_1" xml:space="preserve">
+    <value>Tomorrow! Tomorrow I shall have more wares!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_NO_MONEY_B" xml:space="preserve">
+    <value>Oh?[pause=0] You seem short on money, my friend.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_MAX_MONEY_B_0" xml:space="preserve">
+    <value>Oh! You're carrying too much money, my friend!</value>
+    <comment>i have no idea if this is even possible in PMDO</comment>
+  </data>
+  <data name="SHOP_MAX_MONEY_B_1" xml:space="preserve">
+    <value>You can't hold any more!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_CANCEL_B" xml:space="preserve">
+    <value>Oh? [pause=0]You don't seem to have anything that you can sell.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_SELL_NOTHING_B" xml:space="preserve">
+    <value>Oh? [pause=0]You seem to have nothing, my friend.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_BUY_NO_SPACE_B" xml:space="preserve">
+    <value>Oh![pause=0] You've run out of space for any more of my wares, my friend!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_B_0_ALT" xml:space="preserve">
+    <value>Oh?[pause=0] My shelves are bare of wares!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_EMPTY_B_1_ALT" xml:space="preserve">
+    <value>I am completely sold out, friend!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_NO_MONEY_B_ALT" xml:space="preserve">
+    <value>Oh! [pause=0]You're short on money, my friend!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_UNSELLABLE_B" xml:space="preserve">
+    <value>Whoa![pause=0] I... I can't accept anything like that!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_MAX_MONEY_B_ALT" xml:space="preserve">
+    <value>Oh no![pause=0] My friend, you cannot add to your money! I cannot do this.</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_0" xml:space="preserve">
+    <value>Pokémon moves...[pause=0]are the path to ultimate power!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_1" xml:space="preserve">
+    <value>Smash walls![pause=0] Fly![pause=0] So many moves. All dynamic, each elegant in its way!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_2" xml:space="preserve">
+    <value>And some moves, obscure and rare, are...[pause=0]simply beautiful!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_3" xml:space="preserve">
+    <value>We sell many moves daily![pause=0] They can be learned using our Technical Machines, or TMs for short!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_4" xml:space="preserve">
+    <value>You see? Isn't it exciting? It's the stuff of dreams!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_5" xml:space="preserve">
+    <value>Why, it gets me so excited that I've taken on a rosy hue!</value>
+    <comment></comment>
+  </data>
+  <data name="SHOP_INFO_B_6" xml:space="preserve">
+    <value>I do hope you will shop at our market. Visit my elder brother and me!</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_INTRO" xml:space="preserve">
+    <value>Hello, there! Welcome to {0} Storage.</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_CONTINUE" xml:space="preserve">
+    <value>Anything else, dear?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_EXIT" xml:space="preserve">
+    <value>Thanks, sweetie! Come again!</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_STORE" xml:space="preserve">
+    <value>What would you like to store? (You can use {0} to choose more than one item, or {1} and {2} to select everything.)</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_STORE_MORE" xml:space="preserve">
+    <value>Care to store anything else?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_STORE_ONE" xml:space="preserve">
+    <value>I'll put your {0} in storage, OK?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_STORE_MANY" xml:space="preserve">
+    <value>I'll put the items you chose in storage, OK?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_STORE_CONFIRM" xml:space="preserve">
+    <value>OK, stored away! You can count on me, honey.</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_TAKE" xml:space="preserve">
+    <value>What will you take out? (You can use {0} to choose more than one item.)</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_TAKE_MORE" xml:space="preserve">
+    <value>Care to take out anything else?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_TAKE_ONE" xml:space="preserve">
+    <value>I'll take your {0} out of storage, OK?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_TAKE_MANY" xml:space="preserve">
+    <value>I'll take the items you chose out of storage, OK?</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_TAKE_CONFIRM" xml:space="preserve">
+    <value>There you go, sweetie!</value>
+    <comment></comment>
+  </data>
+  <data name="STORAGE_NO_ITEMS" xml:space="preserve">
+    <value>Oh? You don't seem to have anything.</value>
+  </data>
+  <data name="STORAGE_FULL_ITEMS" xml:space="preserve">
+    <value>Oh? You don't have the room to carry any more items, dear.</value>
+  </data>
+  <data name="STORAGE_EMPTY" xml:space="preserve">
+    <value>Oh? You don't have anything stored, dear.</value>
+  </data>
+  <data name="STORAGE_UNSTOREABLE" xml:space="preserve">
+    <value>Sorry, dear. You can't put that {0} in storage.</value>
+    <comment>Unique Item (?)</comment>
+  </data>
+  <data name="STORAGE_MAX_ITEM" xml:space="preserve">
+    <value>Sorry, dear. I can't take any more of that item.</value>
+  </data>
+  <data name="STORAGE_NO_SPACE" xml:space="preserve">
+    <value>Sorry, dear. I've run out of storage space.</value>
+    <comment>Impossible in PMDO since the arbitrary limit is removed</comment>
+  </data>
+  <data name="STORAGE_INFO_0" xml:space="preserve">
+    <value>I can store items that you found in dungeons or that you bought from shops.</value>
+  </data>
+  <data name="STORAGE_INFO_1" xml:space="preserve">
+    <value>If you faint in a dungeon, some of your items will be lost...</value>
+    <comment>False advertising (for now) since PMDO removes ALL items</comment>
+  </data>
+  <data name="STORAGE_INFO_2" xml:space="preserve">
+    <value>But anything that you have put in storage will be safe.</value>
+  </data>
+  <data name="STORAGE_INFO_3" xml:space="preserve">
+    <value>I keep watch over the storage space, so anything you leave here won't ever disappear!</value>
+  </data>
+  <data name="STORAGE_INFO_4" xml:space="preserve">
+    <value>If you have any items that you can't bear to lose, be sure to leave them with me!</value>
+  </data>
+  <data name="STORAGE_NO_ITEMS_ALT" xml:space="preserve">
+    <value>Oh? I'm afraid you don't have any items to be stored, dear.</value>
+  </data>
+  <data name="BANK_INTRO_0" xml:space="preserve">
+    <value>Welcome to {0} Bank!</value>
+  </data>
+  <data name="BANK_INTRO_1A" xml:space="preserve">
+    <value>How may I help? Hee-hee...</value>
+    <comment>Triggers when the player has no saved money</comment>
+  </data>
+  <data name="BANK_INTRO_1B" xml:space="preserve">
+    <value>Your bank balance is \uE024{0}\uE023. Now, how may I serve you? Hee-hee...</value>
+  </data>
+  <data name="BANK_INFO_0" xml:space="preserve">
+    <value>Did you know that if you fall in a dungeon, half of your money will be spirited away, never to be found again? Hee-hee...</value>
+    <comment>False Advertising (for now) again, PMDO takes ALL money</comment>
+  </data>
+  <data name="BANK_INFO_1" xml:space="preserve">
+    <value>Avoid that fate...[pause=0]hee-hee...[pause=0] by leaving your money in {0} Bank.</value>
+  </data>
+  <data name="BANK_INFO_2" xml:space="preserve">
+    <value>Then, if you are defeated in a dungeon, you'll find your money safe and sound with me.</value>
+  </data>
+  <data name="BANK_INFO_3" xml:space="preserve">
+    <value>I admit that I may appear\nrather sinister...[pause=0]hee-hee...</value>
+  </data>
+  <data name="BANK_INFO_4" xml:space="preserve">
+    <value>But don't judge me by my looks! I'm hauntingly honest...[pause=0]hee-hee!</value>
+  </data>
+  <data name="BANK_INFO_5" xml:space="preserve">
+    <value>So leave your money with me. It will rest in peace...[pause=0]hee-hee!</value>
+  </data>
+  <data name="BANK_EXIT" xml:space="preserve">
+    <value>I look forward to your next visit! Hee-hee!</value>
+  </data>
+  <data name="BANK_CANCEL" xml:space="preserve">
+    <value>You wish to cancel. All right.</value>
+  </data>
+  <data name="BANK_NO_MONEY" xml:space="preserve">
+    <value>What?[pause=0] Oh, deepest sorrow! You have no money!</value>
+  </data>
+  <data name="BANK_MAX_MONEY_0" xml:space="preserve">
+    <value>Whoooa! What a vast stash of money you have here![pause=0] Our safe is about to burst! Hee-hee!</value>
+    <comment>i have no idea if this is even possible in PMDO</comment>
+  </data>
+  <data name="BANK_MAX_MONEY_1" xml:space="preserve">
+    <value>Unfortunately, we can't take any more.</value>
+  </data>
+  <data name="BANK_DEPOSIT" xml:space="preserve">
+    <value>How much do you want to deposit?</value>
+  </data>
+  <data name="BANK_DEPOSIT_CONFIRM" xml:space="preserve">
+    <value>\uE024{0}\uE023! It will rest here in peace. Forever, if you wish. Hee-hee!</value>
+  </data>
+  <data name="BANK_MAX_PURSE" xml:space="preserve">
+    <comment>i have no idea if this is even possible in PMDO</comment>
+    <value>What?[pause=0] I'm sorry, but you can't carry any more money! [pause=0]There's not even a ghost of a chance! Hee-hee!</value>
+  </data>
+  <data name="BANK_NO_BALANCE" xml:space="preserve">
+    <value>What?[pause=0] I'm sorry to say that you have no money here. Your vault is barren!</value>
+  </data>
+  <data name="BANK_WITHDRAWL" xml:space="preserve">
+    <value>How much will you withdraw?</value>
+  </data>
+  <data name="BANK_WITHDRAWL_CONFIRM" xml:space="preserve">
+    <value>\uE024{0}\uE023? OK, here it is!</value>
+  </data>
+  <data name="DAYCARE_NO_EGG_A_0" xml:space="preserve">
+    <value>{0} Day Care welcomes
+you! ♪[pause=0] I love taking care of Eggs! ♪</value>
+    <comment>Triggers with first interaction</comment>
+  </data>
+  <data name="DAYCARE_NO_EGG_A_1" xml:space="preserve">
+    <value>If you ever get an Egg, I'll
+watch it for you! ♪[pause=0] I'll care for it as if it
+were my very own! ♪</value>
+  </data>
+  <data name="DAYCARE_NO_EGG_A_2" xml:space="preserve">
+    <value>I've heard that you can get Eggs as rewards for missions sometimes. ♪</value>
+  </data>
+  <data name="DAYCARE_NO_EGG_A_3" xml:space="preserve">
+    <value>So, if you want an Egg, go on lots of missions! ♪</value>
+  </data>
+  <data name="DAYCARE_NO_EGG_B_0" xml:space="preserve">
+    <comment>Triggers after player already hatched an egg</comment>
+    <value>This is {0} Day Care! I'll take care of any more Eggs that you get!</value>
+  </data>
+  <data name="DAYCARE_NO_EGG_B_1" xml:space="preserve">
+    <value>I've heard that you can get Eggs as rewards for doing missions sometimes! ♪</value>
+  </data>
+  <data name="DAYCARE_NO_EGG_B_2" xml:space="preserve">
+    <value>So, if you want an Egg, go on lots of missions! ♪</value>
+  </data>
+  <data name="DAYCARE_INTRO" xml:space="preserve">
+    <value>I'm looking after your Egg! ♪ It's doing fabulously well! ♪</value>
+    <comment>Only triggers if you have an egg</comment>
+  </data>
+  <data name="DAYCARE_EXIT" xml:space="preserve">
+    <value>Please come back another time to check on it! ♪</value>
+  </data>
+  <data name="DAYCARE_INFO_1" xml:space="preserve">
+    <value>{0} Day Care takes Eggs and looks after them for Pokémon! ♪</value>
+  </data>
+  <data name="DAYCARE_INFO_2" xml:space="preserve">
+    <value>I'm responsible for caring for Eggs, raising them as if they were my own! ♪</value>
+  </data>
+  <data name="DAYCARE_INFO_3" xml:space="preserve">
+    <value>I hope you're as excited as I am to know what's growing inside your Egg! ♪</value>
+  </data>
+  <data name="DAYCARE_INFO_4" xml:space="preserve">
+    <value>I've heard that you can get Eggs as rewards for missions sometimes. ♪</value>
+  </data>
+  <data name="DAYCARE_INFO_5" xml:space="preserve">
+    <value>So, if you want an Egg, go on lots of missions! ♪</value>
+  </data>
+  <data name="DAYCARE_CHECK_0" xml:space="preserve">
+    <value>Huh...?[pause=0] The Egg...</value>
+    <comment>Sound effect plays at the beginning</comment>
+  </data>
+  <data name="DAYCARE_CHECK_1" xml:space="preserve">
+    <value>Is it...?[pause=0] Could it be...?[pause=0] Is it close to hatching?</value>
+  </data>
+  <data name="DAYCARE_CHECK_2" xml:space="preserve">
+    <value>Could it...?!</value>
+  </data>
+  <data name="DAYCARE_CHECK_3" xml:space="preserve">
+    <value>Will it...?!</value>
+  </data>
+  <data name="DAYCARE_HATCHED_0" xml:space="preserve">
+    <value>Huh...?[pause=0] What?</value>
+    <comment>Sound effect plays at the end</comment>
+  </data>
+  <data name="DAYCARE_HATCHED_1" xml:space="preserve">
+    <value>The Egg...[pause=0]hatched!</value>
+    <comment>Menu sound effect plays before "hatched"</comment>
+  </data>
+  <data name="DAYCARE_HATCHED_2" xml:space="preserve">
+    <value>A healthy {0}![pause=0] Look! See it smile? It's adorable! ♪</value>
+  </data>
+  <data name="DAYCARE_HATCHED_3" xml:space="preserve">
+    <value>Oh? The {0} wants to join your team! ♪[pause=0] What will you do?</value>
+  </data>
+  <data name="DAYCARE_WAIT_0" xml:space="preserve">
+    <value>Hmmm...[pause=0] Well...[pause=0] Not quite yet...</value>
+  </data>
+  <data name="DAYCARE_WAIT_1" xml:space="preserve">
+    <value>Give it a little more time, then come by for another look! ♪</value>
+  </data>
+  <data name="DAYCARE_RECRUIT_PROMPT" xml:space="preserve">
+    <value>Accept {0} into the team?</value>
+  </data>
+  <data name="DAYCARE_RECRUIT_DENY_0" xml:space="preserve">
+    <value>You didn't accept the baby Pokémon for your exploration team.</value>
+  </data>
+  <data name="DAYCARE_RECRUIT_DENY_1" xml:space="preserve">
+    <value>So {0} went off, happy and carefree!</value>
+  </data>
+  <data name="DAYCARE_RECRUIT_ACCEPT_0" xml:space="preserve">
+    <value>{0} joined the team!</value>
+  </data>
+  <data name="DAYCARE_RECRUIT_ACCEPT_1" xml:space="preserve">
+    <value>{0} is happy to be a member!</value>
+  </data>
+  <data name="DAYCARE_RECRUIT_ACCEPT_2" xml:space="preserve">
+    <value>{0} went off to be a part of your {1} Assembly roster.</value>
+  </data>
+  <data name="DAYCARE_HOLDING_ITEM_0" xml:space="preserve">
+    <value>Huh? Well, this is unusual![pause=0]The baby is holding a special item!</value>
+  </data>
+  <data name="DAYCARE_HOLDING_ITEM_1" xml:space="preserve">
+    <value>You should think about keeping that item with you! ♪</value>
+  </data>
+  <data name="DAYCARE_HOLDING_ITEM_2" xml:space="preserve">
+    <comment>Only happens when bag is full</comment>
+    <value>Or that's what I would suggest, if you had the room for it.</value>
+  </data>
+  <data name="DAYCARE_HOLDING_ITEM_3" xml:space="preserve">
+    <value>You don't, so I'll take it over to storage for you later! ♪</value>
+  </data>
+  <data name="DAYCARE_NICKNAME_PROMPT" xml:space="preserve">
+    <value>A new member joined the team! Give {0} a nickname?</value>
+  </data>
+  <data name="DAYCARE_UNK" xml:space="preserve">
+    <value>You do NOT want to throw that out!</value>
+    <comment>not sure what this is used for</comment>
+  </data>
+  <data name="DAYCARE_UNK2" xml:space="preserve">
+    <value>Refused to take {0} as a member.</value>
+    <comment>unused..?</comment>
+  </data>
+  <data name="SWAP_INTRO" xml:space="preserve">
+    <value>Meh-heh-heh. Welcome to the {0} Swap Shop. Want to swap? It'll cost ya \uE024{1}\uE023.</value>
+  </data>
+  <data name="SWAP_CONTINUE" xml:space="preserve">
+    <value>Meh-heh-heh. Anything else you wanna swap?</value>
+  </data>
+  <data name="SWAP_NO_MONEY" xml:space="preserve">
+    <value>Meh-heh-heh...[pause=0] Hey, hold it! No money, no swap. Got that?</value>
+  </data>
+  <data name="SWAP_CANT_AFFORD_0" xml:space="preserve">
+    <value>Didn't I tell ya? It's \uE024{0}\uE023 for every swap. Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_CANT_AFFORD_1" xml:space="preserve">
+    <value>That means you don't have the money to do it right now!</value>
+  </data>
+  <data name="SWAP_CANT_SWAP" xml:space="preserve">
+    <value>Let me take a look... Nope, you don't have a set of swappable items. Meh-heh.</value>
+  </data>
+  <data name="SWAP_EMPTY_0" xml:space="preserve">
+    <value>Meh-heh-heh. Sorry...</value>
+  </data>
+  <data name="SWAP_EMPTY_1" xml:space="preserve">
+    <value>It looks like there's nobody to trade with now.</value>
+  </data>
+  <data name="SWAP_EXCHANGE" xml:space="preserve">
+    <value>So which Exclusive Item do you want?</value>
+  </data>
+  <data name="SWAP_CANCEL" xml:space="preserve">
+    <value>You don't wanna? Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_SURPRISE" xml:space="preserve">
+    <value>What...? [pause=0]Whoa!</value>
+    <comment>Not sure where this is used</comment>
+  </data>
+  <data name="SWAP_TWO" xml:space="preserve">
+    <value>So you wanna swap your {0} and {1} for that?</value>
+  </data>
+  <data name="SWAP_THREE" xml:space="preserve">
+    <value>So you wanna swap your {0}, {1}, and {2} for that?</value>
+  </data>
+  <data name="SWAP_MANY" xml:space="preserve">
+    <value>So you wanna swap your {0} Exclusive Items, then?</value>
+  </data>
+  <data name="SWAP_CONFIRM" xml:space="preserve">
+    <value>It'll cost \uE024{0}\uE023. OK?</value>
+  </data>
+  <data name="SWAP_PROCEED_0" xml:space="preserve">
+    <value>Let's do this swap then! Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_PROCEED_1" xml:space="preserve">
+    <value>{0} put the Exclusive Items in the Swap Cauldron.</value>
+    <comment>Sound effect plays before "Exclusive Items"</comment>
+  </data>
+  <data name="SWAP_SUCCESS_COMMON_0" xml:space="preserve">
+    <value>Meh-heh-heh![pause=0] Seems to me your swap went off without a hitch!</value>
+  </data>
+  <data name="SWAP_SUCCESS_COMMON_1" xml:space="preserve">
+    <value>Those Exclusive Items you swapped got you this {0}.</value>
+  </data>
+  <data name="SWAP_SUCCESS_COMMON_2" xml:space="preserve">
+    <value>I'd say it's pretty rare. Treat it with care. Meh-heh-heh!!</value>
+  </data>
+  <data name="SWAP_SUCCESS_COMMON_3" xml:space="preserve">
+    <value>{0} accepted the {1}.</value>
+    <comment>{0} is the player's name, menu sound effect plays before item string</comment>
+  </data>
+  <data name="SWAP_SUCCESS_RARE_0" xml:space="preserve">
+    <value>Meh-heh-heh![pause=0] Seems that we brewed up a successful swap there!</value>
+  </data>
+  <data name="SWAP_SUCCESS_RARE_1" xml:space="preserve">
+    <value>What? [pause=0]What's that?! {0}?! I must be hallucinating!</value>
+  </data>
+  <data name="SWAP_SUCCESS_RARE_2" xml:space="preserve">
+    <value>That's unbelievably valuable![pause=0] So incredibly special!</value>
+  </data>
+  <data name="SWAP_SUCCESS_RARE_3" xml:space="preserve">
+    <value>I rarely see something so valuable! Treat it with respect! Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_SUCCESS_RARE_4" xml:space="preserve">
+    <value>{0} accepted the extremely rare and precious {1}!</value>
+    <comment>{0} is the player's name, menu sound effect plays before item string</comment>
+  </data>
+  <data name="SWAP_BAG_FULL_0" xml:space="preserve">
+    <value>...But you can't take it. Not when you don't have room for it! Meh-heh-heh.</value>
+  </data>
+  <data name="SWAP_BAG_FULL_1" xml:space="preserve">
+    <value>So I'll send it to your storage later. You be sure to check on it.</value>
+  </data>
+  <data name="SWAP_INFO_0" xml:space="preserve">
+    <value>See the Swap Cauldron behind me? When ya throw in some Exclusive Items...</value>
+  </data>
+  <data name="SWAP_INFO_1" xml:space="preserve">
+    <value>They're swapped for one Exclusive Item offered up by another Pokémon.</value>
+  </data>
+  <data name="SWAP_INFO_2" xml:space="preserve">
+    <value>But you have to put in a set of swappable items!</value>
+  </data>
+  <data name="SWAP_INFO_3" xml:space="preserve">
+    <value>Don't worry. It's worth it. You can get back rare items in swaps.</value>
+  </data>
+  <data name="SWAP_INFO_4" xml:space="preserve">
+    <value>Count on it! Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_0" xml:space="preserve">
+    <value>If you look up the Info on items, the ones that are Exclusive Items will have this \uE10C mark on them.</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_1" xml:space="preserve">
+    <value>You'll need a set of items with the \uE10C mark to do the swap.</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_2" xml:space="preserve">
+    <value>Let me give you an example.[pause=0] Let's say you have a {0} and
+a {1)...</value>
+    <comment>{0} = Shinx Claw, {1} = Shinx Fang</comment>
+  </data>
+  <data name="SWAP_ITEM_INFO_3" xml:space="preserve">
+    <value>You could swap them for a {0}. Get it?</value>
+    <comment>{0} = Flash Tag</comment>
+  </data>
+  <data name="SWAP_ITEM_INFO_4" xml:space="preserve">
+    <value>Also,[pause=0] you don't have to be limited to just your Treasure Bag...</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_5" xml:space="preserve">
+    <value>You can trade the Exclusive Items in your storage as well.</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_6" xml:space="preserve">
+    <value>So you don't have to worry about dragging things out of your storage and lugging them all the way here.</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_7" xml:space="preserve">
+    <value>Keep at your exploration thing so you can do better swaps, OK? Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_TEAM_INFO_0" xml:space="preserve">
+    <value>Which Exclusive Items will have an effect on you or your team...?[pause=0] You can view them in a list.</value>
+  </data>
+  <data name="SWAP_TEAM_INFO_1" xml:space="preserve">
+    <value>If you see an Exclusive Item you want on the list...[pause=0]then of course you can trade for it!</value>
+  </data>
+  <data name="SWAP_EXIT" xml:space="preserve">
+    <value>Come again! Meh-heh-heh!</value>
+  </data>
+  <data name="SWAP_EXCHANGE_ITEMS" xml:space="preserve">
+    <value>OK, so which Exclusive Items are you offering in return?</value>
+  </data>
+  <data name="SWAP_MEMBERS" xml:space="preserve">
+    <value>Whose list of Exclusive Items do you want to see?</value>
+  </data>
+  <data name="SWAP_MEMBER_LIST" xml:space="preserve">
+    <value>Here's a list of Exclusive Items that {0} can use.</value>
+  </data>
+  <data name="SWAP_MEMBERS_CONTINUE" xml:space="preserve">
+    <value>Would you like to see anyone else's Exclusive Items list?</value>
+  </data>
+  <data name="SWAP_INFO_PROMPT" xml:space="preserve">
+    <value>What information would you like to get?</value>
   </data>
 </root>

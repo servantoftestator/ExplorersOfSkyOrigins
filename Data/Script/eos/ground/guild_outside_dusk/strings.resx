@@ -74,13 +74,13 @@
     <value>This is it. Today I'm going to be brave.</value>
   </data>
   <data name="CH1_Unknown_1" xml:space="preserve">
-    <value>\uE040: Pokémon detected! Pokémon detected!</value>
+    <value>\uE040: Pokémon detected![pause=0] Pokémon detected!</value>
   </data>
   <data name="CH1_Unknown_2" xml:space="preserve">
-    <value>\uE040: Whose footprint? Whose footprint?</value>
+    <value>\uE040: Whose footprint?[pause=0] Whose footprint?</value>
   </data>
   <data name="CH1_Unknown_3" xml:space="preserve">
-    <value>\uE040: The footprint is {0}'s! The footprint is {0}'s!</value>
+    <value>\uE040: The footprint is {0}'s![pause=0] The footprint is {0}'s!</value>
   </data>
   <data name="CH1_Partner_4" xml:space="preserve">
     <value>Waah!</value>
@@ -150,5 +150,143 @@
   </data>
   <data name="CH1_Zubat_3" xml:space="preserve">
     <value>We do.</value>
+  </data>
+  <data name="CH2_Partner_1_0" xml:space="preserve">
+    <value>This place is {0}'s Guild.</value>
+  </data>
+  <data name="CH2_Partner_1_1" xml:space="preserve">
+    <value>This is {0}'s Guild.</value>
+  </data>
+  <data name="CH2_Partner_1_2" xml:space="preserve">
+    <value>This is {0}'s Guild.</value>
+  </data>
+  <data name="CH2_Partner_2" xml:space="preserve">
+    <value>To form an exploration team, you need to register your team here.</value>
+  </data>
+  <data name="CH2_Partner_3" xml:space="preserve">
+    <value>Then you have to train until you become a first-rate exploration team.</value>
+  </data>
+  <data name="CH2_Partner_4" xml:space="preserve">
+    <value>Y-y-yikes!</value>
+  </data>
+  <data name="CH2_Partner_5_0" xml:space="preserve">
+    <value>I still think this place is a bit weird. It just is!</value>
+  </data>
+  <data name="CH2_Partner_5_1" xml:space="preserve">
+    <value>Isn't there something just a little odd about this place?</value>
+  </data>
+  <data name="CH2_Partner_5_2" xml:space="preserve">
+    <value>Isn't this place just a little bit odd? It just is!</value>
+  </data>
+  <data name="CH2_Partner_6" xml:space="preserve">
+    <value>No...![pause=0] I've got {0} with me this time.</value>
+  </data>
+  <data name="CH2_Partner_7" xml:space="preserve">
+    <value>I have to be brave.</value>
+  </data>
+  <data name="CH2_Partner_8" xml:space="preserve">
+    <value>Waah!</value>
+  </data>
+  <data name="CH2_Partner_9_0" xml:space="preserve">
+    <value>N-no. I have to tough it out...</value>
+  </data>
+  <data name="CH2_Partner_9_1" xml:space="preserve">
+    <value>N-no. I have to be strong...</value>
+  </data>
+  <data name="CH2_Partner_9_2" xml:space="preserve">
+    <value>N-no. I can't lose it now...</value>
+  </data>
+  <data name="CH2_Unknown_1" xml:space="preserve">
+    <value>\uE040: ...[pause=0]You may ENTER!</value>
+  </data>
+  <data name="CH2_Unknown_2" xml:space="preserve">
+    <value>\uE040: Someone's with you![pause=0] So get that stranger to stand up THERE!</value>
+  </data>
+  <data name="CH2_Partner_10_0" xml:space="preserve">
+    <value>I think they're talking about you, {0}.</value>
+  </data>
+  <data name="CH2_Partner_10_1" xml:space="preserve">
+    <value>They probably meant you, {0}.</value>
+  </data>
+  <data name="CH2_Partner_10_2" xml:space="preserve">
+    <value>I think they mean you, {0}.</value>
+  </data>
+  <data name="CH2_Partner_11" xml:space="preserve">
+    <value>They said to stand up here.</value>
+  </data>
+  <data name="CH2_Hero_1" xml:space="preserve">
+    <value>(............)</value>
+  </data>
+  <data name="CH2_Hero_2" xml:space="preserve">
+    <value>(There's a grate covering the hole...)</value>
+  </data>
+  <data name="CH2_Hero_3" xml:space="preserve">
+    <value>(It's made so that no one can fall through...)</value>
+  </data>
+  <data name="CH2_Hero_4" xml:space="preserve">
+    <value>(Still, it's really strange...)</value>
+  </data>
+  <data name="CH2_Hero_5" xml:space="preserve">
+    <value>(It looks like it will tickle my feet or...)</value>
+  </data>
+  <data name="CH2_Unknown_3" xml:space="preserve">
+    <value>\uE040: Hey, you! Stranger![pause=0] Get on the GRATE!</value>
+  </data>
+  <data name="CH2_Unknown_4" xml:space="preserve">
+    <value>\uE040: The footprint is...[pause=0] The footprint is... Um...</value>
+  </data>
+  <data name="CH2_Unknown_5" xml:space="preserve">
+    <value>\uE040: What's the matter?![pause=0] Sentry![pause=0] Sentry?!</value>
+  </data>
+  <data name="CH2_Unknown_6" xml:space="preserve">
+    <value>\uE040: What's wrong, sentry {0}?</value>
+  </data>
+  <data name="CH2_Diglett_1" xml:space="preserve">
+    <value>Umm... Er...</value>
+  </data>
+  <data name="CH2_Partner_12_0" xml:space="preserve">
+    <value>Huh?[pause=0] Are they arguing?</value>
+  </data>
+  <data name="CH2_Partner_12_1" xml:space="preserve">
+    <value>What?[pause=0] Are they arguing?</value>
+  </data>
+  <data name="CH2_Partner_12_2" xml:space="preserve">
+    <value>What?[pause=0] Are they arguing?</value>
+  </data>
+  <data name="CH2_Unknown_7" xml:space="preserve">
+    <value>\uE040: ...Sorry to make you WAIT.</value>
+  </data>
+  <data name="CH2_Unknown_8" xml:space="preserve">
+    <value>\uE040: Well, it's TRUE that you don't see any {0} in these parts...</value>
+  </data>
+  <data name="CH2_Unknown_9" xml:space="preserve">
+    <value>\uE040: But you don't SEEM to be bad...</value>
+  </data>
+  <data name="CH2_Unknown_10" xml:space="preserve">
+    <value>\uE040: OK, good enough![pause=0] ENTER!</value>
+  </data>
+  <data name="CH2_Partner_13_0" xml:space="preserve">
+    <value>Yikes!</value>
+  </data>
+  <data name="CH2_Partner_13_1" xml:space="preserve">
+    <value>Yikes!</value>
+  </data>
+  <data name="CH2_Partner_13_2" xml:space="preserve">
+    <value>Yipes!</value>
+  </data>
+  <data name="CH2_Partner_14" xml:space="preserve">
+    <value>I'm so nervous! So jittery!</value>
+  </data>
+  <data name="CH2_Partner_15" xml:space="preserve">
+    <value>But I'm glad we're finally allowed in.[pause=0] My heart's pounding, though...</value>
+  </data>
+  <data name="CH2_Partner_16_0" xml:space="preserve">
+    <value>Anyway, let's go.</value>
+  </data>
+  <data name="CH2_Partner_16_1" xml:space="preserve">
+    <value>OK, let's go in.</value>
+  </data>
+  <data name="CH2_Partner_16_2" xml:space="preserve">
+    <value>Anyway, let's go.</value>
   </data>
 </root>
