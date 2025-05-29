@@ -20855,44 +20855,17 @@
 },
 "Status": {},
 "Background": {
-"$type": "RogueEssence.Dungeon.LayeredBG, RogueEssence",
-"Layers": [
-{
-"BG": {
+"$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
 "MapLoc": {
 "X": 0,
 "Y": 0
 },
 "BGAnim": {
-"AnimIndex": "StormFront",
-"FrameTime": 20,
+"AnimIndex": "Cutscene_StormClouds",
+"FrameTime": 1,
 "StartFrame": -1,
 "EndFrame": -1,
 "AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"BGMovement": {
-"X": -15,
-"Y": 0
-},
-"Parallax": "0, 0",
-"RepeatX": true,
-"RepeatY": false
-}
-},
-{
-"BG": {
-"MapLoc": {
-"X": 0,
-"Y": 0
-},
-"BGAnim": {
-"AnimIndex": "StormBack",
-"FrameTime": 10,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": 0,
 "Alpha": 255,
 "AnimFlip": 0
 },
@@ -20903,33 +20876,6 @@
 "Parallax": "0, 0",
 "RepeatX": true,
 "RepeatY": false
-}
-},
-{
-"BG": {
-"MapLoc": {
-"X": 0,
-"Y": 0
-},
-"BGAnim": {
-"AnimIndex": "RainStorm",
-"FrameTime": 3,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"BGMovement": {
-"X": -50,
-"Y": 0
-},
-"Parallax": "0, 0",
-"RepeatX": true,
-"RepeatY": false
-}
-}
-]
 },
 "BlankBG": {
 "AutoTileset": "",
@@ -22526,10 +22472,128 @@
 "ActiveChar": null,
 "Decorations": [
 {
-"Name": "New Deco",
+"Name": "Waves",
+"Layer": 4,
+"Visible": true,
+"Anims": [
+{
+"MapLoc": {
+"X": 575,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Cutscene_StormWaves",
+"FrameTime": 10,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+},
+{
+"MapLoc": {
+"X": 0,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Cutscene_StormWaves",
+"FrameTime": 10,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+]
+},
+{
+"Name": "Storm Flash",
 "Layer": 0,
 "Visible": true,
-"Anims": []
+"Anims": [
+{
+"MapLoc": {
+"X": 0,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Cutscene_StormFlash",
+"FrameTime": 5,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+},
+{
+"MapLoc": {
+"X": 624,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Cutscene_StormFlash",
+"FrameTime": 5,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+]
+},
+{
+"Name": "Storm Clouds",
+"Layer": 4,
+"Visible": true,
+"Anims": [
+{
+"MapLoc": {
+"X": 0,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Assembly",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+]
+},
+{
+"Name": "Lightning",
+"Layer": 4,
+"Visible": true,
+"Anims": [
+{
+"MapLoc": {
+"X": 0,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Block_Blank",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+]
 }
 ],
 "Entities": [
@@ -22549,7 +22613,7 @@
 "triggerType": 0,
 "Collider": {
 "X": 4,
-"Y": 4,
+"Y": 364,
 "Width": 16,
 "Height": 16
 }
