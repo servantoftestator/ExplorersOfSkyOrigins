@@ -1,9 +1,9 @@
 # ExplorersOfSkyOrigins
 ![Title](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/bb3e0ad5-e87e-43e0-a6f4-a84e90a08d87)
 
-A remake of EoS in the PMDO Engine, featuring more starters, a reworked battle system, and more!
+A remake of EoS in the PMDO Engine, featuring more starters, a reworked battle system, revamped dungeons, and more!
 
-This project is in no way affiliated with Nintendo, The Pokemon Company, or Spike Chunsoft. I'm just a fan who likes PMD games.
+This project is in no way affiliated with Nintendo, Creatures Inc, The Pokemon Company, or Spike Chunsoft. I'm just a fan who likes PMD games and wants to preserve them. 
 
 # Credits
 ![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) ItsMochaTheOtter (Minemaker0430) - Project Creator, Cutscenes (Chapter 1), Dungeons, Balancing, Items
