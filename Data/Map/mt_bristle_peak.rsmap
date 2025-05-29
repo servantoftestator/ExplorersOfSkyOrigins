@@ -48,8 +48,8 @@
 "Skills": [
 {
 "Element": {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "disable",
+"Charges": 16,
 "Enabled": true,
 "Sealed": false
 },
@@ -57,8 +57,8 @@
 },
 {
 "Element": {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "hypnosis",
+"Charges": 16,
 "Enabled": true,
 "Sealed": false
 },
@@ -66,8 +66,8 @@
 },
 {
 "Element": {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "confusion",
+"Charges": 21,
 "Enabled": true,
 "Sealed": false
 },
@@ -75,8 +75,8 @@
 },
 {
 "Element": {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "pound",
+"Charges": 25,
 "Enabled": true,
 "Sealed": false
 },
@@ -206,23 +206,23 @@
 "SpeedBonus": 0,
 "BaseSkills": [
 {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "disable",
+"Charges": 16,
 "CanForget": true
 },
 {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "hypnosis",
+"Charges": 16,
 "CanForget": true
 },
 {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "confusion",
+"Charges": 21,
 "CanForget": true
 },
 {
-"SkillNum": "",
-"Charges": 0,
+"SkillNum": "pound",
+"Charges": 25,
 "CanForget": true
 }
 ],
