@@ -34,6 +34,8 @@ function storm_cutscene_a.Enter(map)
 
   GROUND:Hide("PLAYER")
   UI:ResetSpeaker()
+
+  GAME:WaitFrames(60)
   
   SOUND:FadeInSE("Ambient/AMB_Storm", 120)
   
@@ -89,7 +91,7 @@ function storm_cutscene_a.Enter(map)
   GAME:FadeIn(1)
   GAME:WaitFrames(5)
 
-GAME:WaitFrames(10)
+GAME:WaitFrames(30)
 
 --lightning sfx
 SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
@@ -103,7 +105,7 @@ SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
   GAME:FadeIn(1)
   GAME:WaitFrames(5)
   
-  GAME:WaitFrames(10)
+  GAME:WaitFrames(30)
   
   --transition
   SOUND:PlaySE("Battle/EVT_CH01_Transition")

@@ -32,15 +32,157 @@ end
 --Engine callback function
 function storm_cutscene_b.Enter(map)
 
+  GAME:CutsceneMode(true)
   GROUND:Hide("PLAYER")
 
-  local coro1 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
-  local coro2 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Storm", 60) end)
-  TASK:JoinCoroutines({coro1, coro2})
-  
-  GAME:WaitFrames(360)
-  
-  GAME:FadeOut(false, 60)
+  -- setup objects
+  local storm_flash = OBJ('StormFlash')
+
+  local cloud_flash_a = OBJ('StormFlashA')
+  local cloud_flash_b = OBJ('StormFlashB')
+
+  local storm_cloud_1a = OBJ('StormcloudA1')
+  local storm_cloud_2a = OBJ('StormcloudA2')
+  local storm_cloud_3a = OBJ('StormcloudA3')
+
+  local storm_cloud_1b = OBJ('StormcloudB1')
+  local storm_cloud_2b = OBJ('StormcloudB2')
+  local storm_cloud_3b = OBJ('StormcloudB3')
+
+  local storm_cloud_1c = OBJ('StormcloudC1')
+  local storm_cloud_2c = OBJ('StormcloudC2')
+  local storm_cloud_3c = OBJ('StormcloudC3')
+
+  local lightning_a = OBJ('LightningA')
+  local lightning_b = OBJ('LightningB')
+
+  -- hide initial objects
+  GROUND:Hide("StormFlash")
+  GROUND:Hide("StormFlashA")
+  GROUND:Hide("StormFlashB")
+  GROUND:Hide("StormcloudB1")
+  GROUND:Hide("StormcloudB2")
+  GROUND:Hide("StormcloudB3")
+  GROUND:Hide("StormcloudC1")
+  GROUND:Hide("StormcloudC2")
+  GROUND:Hide("StormcloudC3")
+  GROUND:Hide("LightningA")
+  GROUND:Hide("LightningB")
+
+  -- teleport stormclouds to respective positions
+  GROUND:TeleportTo(storm_cloud_1b, storm_cloud_1a.Position.X, storm_cloud_1a.Position.Y, Direction.Down)
+  GROUND:TeleportTo(storm_cloud_1c, storm_cloud_1a.Position.X, storm_cloud_1a.Position.Y, Direction.Down)
+  GROUND:TeleportTo(storm_cloud_2b, storm_cloud_2a.Position.X, storm_cloud_2a.Position.Y, Direction.Down)
+  GROUND:TeleportTo(storm_cloud_2c, storm_cloud_2a.Position.X, storm_cloud_2a.Position.Y, Direction.Down)
+  GROUND:TeleportTo(storm_cloud_3b, storm_cloud_3a.Position.X, storm_cloud_3a.Position.Y, Direction.Down)
+  GROUND:TeleportTo(storm_cloud_3c, storm_cloud_3a.Position.X, storm_cloud_3a.Position.Y, Direction.Down)
+
+  -- set camera position
+  GAME:MoveCamera(320, 120, 1, false)
+
+  local coro1 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end) -- fade in
+  local coro2 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Storm", 60) end) -- play storm ambience
+  local coro3 = TASK:BranchCoroutine(function() -- general ground timer
+    GAME:WaitFrames(360)
+    GAME:FadeOut(false, 60)
+  end)
+  local coro4 = TASK:BranchCoroutine(function() GAME:MoveCamera(170, 120, 420, false) end) -- move camera
+  local coro5 = TASK:BranchCoroutine(function() -- clouds & lightning flashes
+    GAME:WaitFrames(180)
+
+    GROUND:Unhide("StormcloudC1")
+    GROUND:Unhide("StormcloudC2")
+    GROUND:Unhide("StormcloudC3")
+    GROUND:Unhide("StormFlashB")
+
+    GROUND:ObjectSetAnim(storm_cloud_1c, 10, -1, -1, Direction.Down, 1) -- static animation instead of the normal flashing
+    GROUND:ObjectSetAnim(storm_cloud_2c, 10, -1, -1, Direction.Down, 1)
+    GROUND:ObjectSetAnim(storm_cloud_3c, 10, -1, -1, Direction.Down, 1)
+
+    GAME:WaitFrames(2)
+
+    GROUND:Hide("StormcloudC1")
+    GROUND:Hide("StormcloudC2")
+    GROUND:Hide("StormcloudC3")
+    GROUND:Hide("StormFlashB")
+
+    GROUND:Unhide("StormcloudB1")
+    GROUND:Unhide("StormcloudB2")
+    GROUND:Unhide("StormcloudB3")
+    GROUND:Unhide("StormFlashA")
+
+    GAME:WaitFrames(2)
+
+    GROUND:Hide("StormcloudB1")
+    GROUND:Hide("StormcloudB2")
+    GROUND:Hide("StormcloudB3")
+    GROUND:Hide("StormFlashA")
+
+    GAME:WaitFrames(5)
+
+    GROUND:Unhide("StormcloudB1")
+    GROUND:Unhide("StormcloudB2")
+    GROUND:Unhide("StormcloudB3")
+    GROUND:Unhide("StormFlashA")
+
+    GAME:WaitFrames(2)
+
+    GROUND:Unhide("LightningA") -- spawn lightning with reset anim
+    GROUND:ObjectSetAnim(lightning_a, 2, -1, -1, Direction.Down, 1)
+    GROUND:ObjectWaitAnimFrame(lightning_a, 1)
+    GROUND:Hide("LightningA")
+
+    GAME:WaitFrames(2)
+
+    GROUND:Hide("StormcloudB1")
+    GROUND:Hide("StormcloudB2")
+    GROUND:Hide("StormcloudB3")
+    GROUND:Hide("StormFlashA")
+
+    GAME:WaitFrames(30)
+
+    GROUND:Unhide("StormcloudC1")
+    GROUND:Unhide("StormcloudC2")
+    GROUND:Unhide("StormcloudC3")
+    GROUND:Unhide("StormFlashB")
+
+    GAME:WaitFrames(2)
+
+    GROUND:Unhide("LightningB") -- spawn lightning 
+
+    GAME:WaitFrames(30)
+
+    GROUND:Hide("LightningB")
+
+    GAME:WaitFrames(2)
+
+    GROUND:Hide("StormcloudC1")
+    GROUND:Hide("StormcloudC2")
+    GROUND:Hide("StormcloudC3")
+    GROUND:Hide("StormFlashB")
+
+  end)
+  local coro6 = TASK:BranchCoroutine(function() -- bg cloud flash
+    GAME:WaitFrames(120)
+
+    GROUND:Unhide("StormFlash")
+    GROUND:ObjectSetAnim(storm_flash, 5, -1, -1, Direction.Down, 1) -- reset the animation cycle
+    GROUND:ObjectWaitAnimFrame(storm_flash, 7)
+    GROUND:ObjectSetAnim(storm_flash, 5, -1, -1, Direction.Down, 1)
+    GROUND:ObjectWaitAnimFrame(storm_flash, 7)
+    GROUND:Hide("StormFlash")
+
+    GAME:WaitFrames(90)
+
+    GROUND:Unhide("StormFlash")
+    GROUND:ObjectSetAnim(storm_flash, 5, -1, -1, Direction.Down, 1) -- reset the animation cycle
+    GROUND:ObjectWaitAnimFrame(storm_flash, 7)
+    GROUND:ObjectSetAnim(storm_flash, 5, -1, -1, Direction.Down, 1)
+    GROUND:ObjectWaitAnimFrame(storm_flash, 7)
+    GROUND:Hide("StormFlash")
+
+  end) 
+  TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6})
   
   --next scene
   GAME:EnterGroundMap("storm_cutscene_c", "Entrance")

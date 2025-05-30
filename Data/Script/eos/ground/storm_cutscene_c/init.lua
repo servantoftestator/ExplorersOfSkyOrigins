@@ -33,34 +33,92 @@ end
 function storm_cutscene_c.Enter(map)
 
   GAME:CutsceneMode(true)
-
   GROUND:Hide("PLAYER")
+
+  -- set camera position
+  GAME:MoveCamera(160, 120, 1, false)
+
+  -- hide initial objects
+  GROUND:Hide("BluffFlash")
+  GROUND:Hide("LightningA")
+  GROUND:Hide("LightningB")
+  GROUND:Hide("LightningC")
 
   GAME:FadeIn(120)
   
-  GAME:WaitFrames(60)
+  GAME:WaitFrames(90)
   
+  --lightning strike
   SOUND:PlaySE("Battle/EVT_CH01_Thunder")
-  UI:WaitShowBG("BluffLightning", 1, 1)
-  GAME:WaitFrames(5)
-  UI:WaitHideBG(1)
-  GAME:WaitFrames(5)
-  UI:WaitShowBG("BluffLightning", 1, 1)
-  GAME:WaitFrames(40)
-  UI:WaitHideBG(1)
+  GROUND:Unhide("BluffFlash")
+
+  GAME:WaitFrames(2)
   
-  GAME:WaitFrames(80)
+  GROUND:Hide("BluffFlash")
   
+  GAME:WaitFrames(2)
+  
+  GROUND:Unhide("BluffFlash")
+  
+  GAME:WaitFrames(2)
+
+  GROUND:Unhide("LightningA")
+
+  GAME:WaitFrames(2)
+
+  GROUND:Hide("LightningA")
+  GROUND:Unhide("LightningB")
+
+  GAME:WaitFrames(4)
+
+  GROUND:Hide("LightningB")
+  GROUND:Unhide("LightningC")
+
+  GAME:WaitFrames(10)
+
+  GROUND:Hide("LightningC")
+
+  GAME:WaitFrames(2)
+
+  GROUND:Hide("BluffFlash")
+  
+  GAME:WaitFrames(90)
+  
+  --lightning strike
   SOUND:PlaySE("Battle/EVT_CH01_Thunder")
-  UI:WaitShowBG("BluffLightning", 1, 1)
-  GAME:WaitFrames(5)
-  UI:WaitHideBG(1)
-  GAME:WaitFrames(5)
-  UI:WaitShowBG("BluffLightning", 1, 1)
-  GAME:WaitFrames(40)
-  UI:WaitHideBG(1)
+  GROUND:Unhide("BluffFlash")
+
+  GAME:WaitFrames(2)
   
-  GAME:WaitFrames(60)
+  GROUND:Hide("BluffFlash")
+  
+  GAME:WaitFrames(2)
+  
+  GROUND:Unhide("BluffFlash")
+  
+  GAME:WaitFrames(2)
+
+  GROUND:Unhide("LightningA")
+
+  GAME:WaitFrames(2)
+
+  GROUND:Hide("LightningA")
+  GROUND:Unhide("LightningB")
+
+  GAME:WaitFrames(4)
+
+  GROUND:Hide("LightningB")
+  GROUND:Unhide("LightningC")
+
+  GAME:WaitFrames(10)
+
+  GROUND:Hide("LightningC")
+
+  GAME:WaitFrames(2)
+
+  GROUND:Hide("BluffFlash")
+  
+  GAME:WaitFrames(90)
   
   --fade out
   local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 120) end)

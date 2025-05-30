@@ -20855,12 +20855,9 @@
 },
 "Status": {},
 "Background": {
-"$type": "RogueEssence.Dungeon.LayeredBG, RogueEssence",
-"Layers": [
-{
-"BG": {
+"$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
 "MapLoc": {
-"X": 10,
+"X": 0,
 "Y": 0
 },
 "BGAnim": {
@@ -20879,33 +20876,6 @@
 "Parallax": "0, 0",
 "RepeatX": false,
 "RepeatY": false
-}
-},
-{
-"BG": {
-"MapLoc": {
-"X": 10,
-"Y": 0
-},
-"BGAnim": {
-"AnimIndex": "RainStorm",
-"FrameTime": 3,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"BGMovement": {
-"X": 0,
-"Y": 0
-},
-"Parallax": "0, 0",
-"RepeatX": true,
-"RepeatY": false
-}
-}
-]
 },
 "BlankBG": {
 "AutoTileset": "",
@@ -22502,10 +22472,27 @@
 "ActiveChar": null,
 "Decorations": [
 {
-"Name": "New Deco",
-"Layer": 0,
+"Name": "Rainstorm",
+"Layer": 4,
 "Visible": true,
-"Anims": []
+"Anims": [
+{
+"MapLoc": {
+"X": 0,
+"Y": 0
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "RainStorm",
+"FrameTime": 3,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+]
 }
 ],
 "Entities": [
@@ -22513,7 +22500,180 @@
 "Name": "New EntLayer",
 "Visible": true,
 "MapChars": [],
-"GroundObjects": [],
+"GroundObjects": [
+{
+"EntName": "BluffFlash",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Cutscene_BluffLightning",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "LightningA",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "BluffLightning_1",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 85,
+"Y": 45,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "LightningB",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "BluffLightning_2",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": -9,
+"Y": 0
+},
+"Collider": {
+"X": 70,
+"Y": 45,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "LightningC",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "BluffLightning_3",
+"FrameTime": 2,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 33,
+"Y": 57,
+"Width": 16,
+"Height": 16
+}
+}
+],
 "Spawners": [],
 "Markers": [
 {
@@ -22524,8 +22684,8 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 4,
-"Y": 4,
+"X": 0,
+"Y": 368,
 "Width": 16,
 "Height": 16
 }
