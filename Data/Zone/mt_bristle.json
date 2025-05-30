@@ -38,7 +38,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -662,7 +662,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -1237,7 +1237,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -1812,7 +1812,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -2387,7 +2387,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -2962,7 +2962,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -3537,7 +3537,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -4112,7 +4112,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false
@@ -4687,7 +4687,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "018 - Mt. Bristle.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 0,
 "ClampCamera": false

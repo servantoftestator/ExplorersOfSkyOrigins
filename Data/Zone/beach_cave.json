@@ -38,7 +38,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "005 - Beach Cave.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
 "ClampCamera": false
@@ -694,7 +694,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "005 - Beach Cave.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
 "ClampCamera": false
@@ -1350,7 +1350,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "005 - Beach Cave.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
 "ClampCamera": false
@@ -2006,7 +2006,7 @@
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
 "Music": "005 - Beach Cave.ogg",
-"TimeLimit": 1500,
+"TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
 "ClampCamera": false
