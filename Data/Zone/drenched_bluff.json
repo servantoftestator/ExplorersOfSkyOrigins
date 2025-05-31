@@ -3925,7 +3925,7 @@
 "Spawns": [
 {
 "Spawn": {
-"ID": "seed_blinker",
+"ID": "seed_x_eye",
 "Cursed": false,
 "HiddenValue": "",
 "Amount": 0,

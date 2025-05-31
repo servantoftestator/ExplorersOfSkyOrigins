@@ -115,6 +115,8 @@ function dusk_beach.CH1_PartnerFindsHero()
 
 	if SV.Cutscene.ProgressFlag == 0 then -- initial beach shot
 
+		GROUND:Hide("PARTNER")
+
 		--fade in to initial shot
 		local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Ocean", 60) end)
 		local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
@@ -129,12 +131,15 @@ function dusk_beach.CH1_PartnerFindsHero()
 
 	elseif SV.Cutscene.ProgressFlag == 1 then -- partner arrives
 
+		GROUND:Hide("PARTNER")
+
 		--partner walks up
 		ExplorerEssentials.SpawnBubbles(3)
 		GAME:FadeIn(60)
 	
 		GAME:WaitFrames(60)
 	
+		GROUND:Unhide("PARTNER")
 		GROUND:MoveToPosition(partner, cam.Position.X, marker.Position.Y, false, 1)
 	
 		GAME:WaitFrames(10)
@@ -856,7 +861,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 			local coro2 = TASK:BranchCoroutine(function() GROUND:CharSetAction(partner, RogueEssence.Ground.PoseGroundAction(partner.Position, partner.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end)
 			TASK:JoinCoroutines({coro1, coro2})
 
-			GAME:WaitFrames(180)
+			GAME:WaitFrames(120)
 		--B
 		elseif result == 2 then --no
 		

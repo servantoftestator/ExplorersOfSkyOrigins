@@ -56,11 +56,6 @@ function beach_cave_pit.Enter(map)
 	beach_cave_pit.NothingHere()
   end
 
-  if not SV.Progression.Chapter == 1 then
-
-	beach_cave_pit.NothingHere()
-  end	
-
 end
 
 ---beach_cave_pit.Exit(map)
@@ -324,8 +319,8 @@ function beach_cave_pit.BossDefeated()
 	GROUND:TeleportTo(player, zubat.Position.X, koffing.Position.Y + 48, Direction.Up)
 	GROUND:CharAnimateTurnTo(koffing, Direction.Down, 4)
 	GROUND:CharAnimateTurnTo(zubat, Direction.Down, 4)
-	--GROUND:CharSetAnim(koffing, "Laying", true)
-	--GROUND:CharSetAnim(zubat, "Laying", true)
+	GROUND:CharSetAnim(koffing, "Laying", true)
+	GROUND:CharSetAnim(zubat, "Laying", true)
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	
@@ -339,8 +334,9 @@ function beach_cave_pit.BossDefeated()
 	GROUND:CharSetEmote(zubat, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_1']))
 	
-	GAME:FadeOut(false, 1)	
-	GAME:FadeIn(10)
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(30)
+	GAME:FadeIn(30)
 	--GROUND:CharSetAnim(koffing, "Normal", true)
 	--GROUND:CharSetAnim(zubat, "Normal", true)
 
