@@ -301,7 +301,46 @@
 "OnStatusRemoves": [],
 "OnMapStatusAdds": [],
 "OnMapStatusRemoves": [],
-"OnMapStarts": [],
+"OnMapStarts": [
+{
+"Key": {
+"str": [
+-15
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.BattlePositionEvent, PMDC",
+"StartLocs": [
+{
+"Loc": {
+"X": 0,
+"Y": 0
+},
+"Dir": 4
+},
+{
+"Loc": {
+"X": -2,
+"Y": 0
+},
+"Dir": 4
+}
+],
+"Positions": null
+}
+},
+{
+"Key": {
+"str": [
+-5
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.BeginBattleEvent, PMDC",
+"CheckClearStatus": "map_clear_check"
+}
+}
+],
 "OnTurnStarts": [],
 "OnTurnEnds": [],
 "OnMapTurnEnds": [],
@@ -33458,13 +33497,6 @@
 {
 "Loc": {
 "X": 15,
-"Y": 12
-},
-"Dir": 4
-},
-{
-"Loc": {
-"X": 13,
 "Y": 12
 },
 "Dir": 4

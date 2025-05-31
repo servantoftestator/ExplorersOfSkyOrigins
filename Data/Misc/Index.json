@@ -10385,6 +10385,14 @@
 "Element2": "dragon",
 "BestStat": -1,
 "WorstStat": -1
+},
+"2": {
+"Family": "dialga",
+"Stage": 1,
+"Element1": "steel",
+"Element2": "dragon",
+"BestStat": -1,
+"WorstStat": -1
 }
 },
 "diancie": {
@@ -13303,6 +13311,14 @@
 },
 "kecleon": {
 "0": {
+"Family": "kecleon",
+"Stage": 1,
+"Element1": "normal",
+"Element2": "none",
+"BestStat": -1,
+"WorstStat": -1
+},
+"1": {
 "Family": "kecleon",
 "Stage": 1,
 "Element1": "normal",

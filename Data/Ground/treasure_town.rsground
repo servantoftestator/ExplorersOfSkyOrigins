@@ -122631,7 +122631,7 @@
 "Direction": 0,
 "IsInteracting": false,
 "AIEnabled": false,
-"EntName": "KecleonShiny",
+"EntName": "PurpleKecleon",
 "EntEnabled": true,
 "EntOrder": 0,
 "InteractOrder": 0,
@@ -122649,8 +122649,8 @@
 "OriginalTeam": "",
 "BaseForm": {
 "Species": "kecleon",
-"Form": 0,
-"Skin": "shiny",
+"Form": 1,
+"Skin": "normal",
 "Gender": 0
 },
 "Level": 1,

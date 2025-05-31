@@ -38,7 +38,7 @@ GROUND:Hide("TEAMMATE_2")
   if SV.Progression.Chapter == 1 then
 	GAME:CutsceneMode(true)
   
-        guild_outside_dusk.PartnerWimpsOut()
+        guild_outside_dusk.CH1_PartnerWimpsOut()
 	
 	GAME:WaitFrames(60)
 	
@@ -110,7 +110,9 @@ end
 -- Cutscene Functions
 -------------------------------
 
-function guild_outside_dusk.PartnerWimpsOut()
+function guild_outside_dusk.CH1_PartnerWimpsOut()
+	GROUND:Hide("TEAMMATE_1")
+	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	

@@ -54,11 +54,9 @@ SV.Progression =
 	DaysToProgress = -1 --how many days until next flag, -1 means disabled
 }
 
-
-SV.Chapter2 = --Chapter 2 flags that can't be covered by SectionFlags due to loss states
+SV.Cutscene =
 {
-        StartedDrenchedBluff = false,--started but died?
-        StartedMtBristle = false,--started MtBristle but died?
+	ProgressFlag = 0 --used for when cutscenes have to switch back and forth between different ground maps
 }
 
 --From Halycon
@@ -75,8 +73,9 @@ SV.DailyFlags =
   GreenKecleonRefreshedStock = false,
   GreenKecleonStock = {},
   PurpleKecleonRefreshedStock = false,
-  PurpleKecleonStock = {}
+  PurpleKecleonStock = {},
 
+	SereneForestUnlocked = false -- used for the special "Oddity Cave like dungeon"
 }
 
 --partner flags for imported follow script
@@ -187,6 +186,12 @@ SV.beach_cave =
 SV.drenched_bluff = 
 {
 	TimesFailed = 0 --triggers a cutscene after 3
+}
+
+SV.mt_bristle = 
+{
+	FailedDungeon = false,
+	FailedBoss = false
 }
 
 ----------------------------------------------

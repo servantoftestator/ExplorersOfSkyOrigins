@@ -110,585 +110,591 @@ function dusk_beach.CH1_PartnerFindsHero()
 	
 	GROUND:TeleportTo(partner, marker.Position.X - 120, marker.Position.Y, Direction.Left)
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+
+	GROUND:Hide("PLAYER")
+
+	if SV.Cutscene.ProgressFlag == 0 then -- initial beach shot
+
+		--fade in to initial shot
+		local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Ocean", 60) end)
+		local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+		TASK:JoinCoroutines({coro1, coro2})
 	
-	--fade in to initial shot
-	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Ocean", 60) end)
-	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
-	TASK:JoinCoroutines({coro1, coro2})
+		GAME:WaitFrames(120)
 	
-	GAME:WaitFrames(120)
+		GAME:FadeOut(false, 60)
+
+		SV.Cutscene.ProgressFlag = 1
+		GAME:EnterGroundMap("krabby_scene_a", "Entrance")
+
+	elseif SV.Cutscene.ProgressFlag == 1 then -- partner arrives
+
+		--partner walks up
+		ExplorerEssentials.SpawnBubbles(3)
+		GAME:FadeIn(60)
 	
-	GAME:FadeOut(false, 60)
+		GAME:WaitFrames(60)
 	
-	--krabby 1
-	UI:WaitShowBG("Krabby", 10, 60)
-	ExplorerEssentials.SpawnBubbles(1)
-	GAME:WaitFrames(120)
-	UI:WaitHideBG(60)
+		GROUND:MoveToPosition(partner, cam.Position.X, marker.Position.Y, false, 1)
 	
-	--krabby 2 & play bgm
-	SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
-	UI:WaitShowBG("Krabby2", 10, 60)
-	ExplorerEssentials.SpawnBubbles(2)
-	GAME:WaitFrames(120)
-	UI:WaitHideBG(60)
+		GAME:WaitFrames(10)
 	
-	--partner walks up
-	ExplorerEssentials.SpawnBubbles(3)
-	GAME:FadeIn(60)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Inspired")
 	
-	GAME:WaitFrames(60)
+		local coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_1_'..tostring(pTalkKind)])) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, cam.Position.X, cam.Position.Y, false, 1) end)
+		TASK:JoinCoroutines({coro1, coro2})
 	
-	GROUND:MoveToPosition(partner, cam.Position.X, marker.Position.Y, false, 1)
+		GAME:WaitFrames(60)
 	
-	GAME:WaitFrames(10)
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Inspired")
-	
-	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_1_'..tostring(pTalkKind)])) end)
-	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, cam.Position.X, cam.Position.Y, false, 1) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	GAME:WaitFrames(60)
-	
-	GAME:FadeOut(false, 60)
-	
-	--sunset view
-	UI:WaitShowBG("OceanSunset", 1, 60)
-	ExplorerEssentials.SpawnBubbles(4)
-	
-	GAME:WaitFrames(240)
-	UI:WaitHideBG(60)
-	
-	--back to partner
-	ExplorerEssentials.SpawnBubbles(3)
-	GAME:FadeIn(60)
-	GAME:WaitFrames(60)
-	
-	UI:SetSpeakerEmotion("Normal")
-	
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_2'], _DATA:GetMonster("krabby"):GetColoredName()))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_3_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_4_'..tostring(pTalkKind)]))
-	
-	GAME:FadeOut(false, 60)
-	
-	--back to view
-	UI:WaitShowBG("OceanSunset", 1, 60)
-	ExplorerEssentials.SpawnBubbles(4)
-	
-	GAME:WaitFrames(240)
-	UI:WaitHideBG(60)
-	
-	--partner exposition
-	ExplorerEssentials.SpawnBubbles(3)
-	GAME:FadeIn(60)
-	GAME:WaitFrames(60)
-	
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_5']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_6_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_7']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_8_'..tostring(pTalkKind)]))
-	
-	--bgm fade out
-	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
-	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
-	
-	GAME:WaitFrames(30)
-	
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
-	GROUND:CharSetEmote(partner, "notice", 1)
-	
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_9']))
-	
-	--partner notices something
-	local marker = MRKR("C1S1_PlayerSpawn")
-	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Right)
-	GROUND:CharSetAnim(player, "Laying", true)
-	
-	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(cam.Position.X - 60, cam.Position.Y, 60, false) end)
-	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 1) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	SOUND:PlayBattleSE("EVT_Emote_Startled")
-	GROUND:CharSetEmote(partner, "shock", 1)
-	CharacterActions.ScaredJump(partner, Direction.Left)
-	
-	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_10']))
-	
-	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 20, cam.Position.Y, 60, false) end)
-	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 2) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	CharacterActions.HopTwice(partner, Direction.Left)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_11']))
-	
-	--partner wakes up hero
-	GROUND:CharSetDrawEffect(player, DrawEffect.Shaking)
-	GAME:WaitFrames(10)
-	GROUND:CharEndDrawEffect(player, DrawEffect.Shaking)
-	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
-	UI:SetSpeakerEmotion("Pain")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_1']))
-	
-	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_2'])) end)
-	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
-												GROUND:CharSetDrawEffect(player, DrawEffect.Shaking)
-												GAME:WaitFrames(20)
-												GROUND:CharEndDrawEffect(player, DrawEffect.Shaking) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	GROUND:CharWaitAnim(player, "Wake")
-	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
-	
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
-	GROUND:CharSetEmote(partner, "exclaim", 1)
-	GAME:WaitFrames(30)
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_12_'..tostring(pTalkKind)]))
-	
-	GAME:WaitFrames(10)
-	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Left, 4) end)
-	local coro2 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Walk", Direction.Left, Direction.Right, 32, 1, 1) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	GAME:WaitFrames(15)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
-	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
-	GAME:WaitFrames(45)
-	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_3']))
-	
-	GAME:WaitFrames(10)
-	GROUND:CharTurnToCharAnimated(player, partner, 4, true)
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_13_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_14_'..tostring(pTalkKind)]))
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_4']))
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_15_'..tostring(pTalkKind)], partner:GetDisplayName()))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_16_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_17_'..tostring(pTalkKind)]))
-	
-	GAME:WaitFrames(15)
-	GROUND:CharSetAnim(player, "Walk", true)
-	GAME:WaitFrames(45)
-	GROUND:CharEndAnim(player)
-	GAME:WaitFrames(30)
-	
-	SOUND:PlayBattleSE("EVT_Emote_Startled")
-	CharacterActions.ScaredJump(partner, Direction.Left)
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_18_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_19'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
-	
-	GAME:WaitFrames(10)
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
-	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
-	GAME:WaitFrames(45)
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
-	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
-	GAME:WaitFrames(45)
-	
-	SOUND:PlayBattleSE("EVT_Emote_Shock")
-	GROUND:CharSetEmote(player, "shock", 1)
-	GAME:WaitFrames(30)
-	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
-	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_5']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_6'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
-	
-	GAME:WaitFrames(15)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_7']))
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_20']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_21']))
-	
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised")
-	GROUND:CharSetEmote(player, "shock", 1)
-	GAME:WaitFrames(30)
-	CharacterActions.ShakeHead(player, Direction.Right)
-	GAME:WaitFrames(30)
-	
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_22']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_23_'..tostring(pTalkKind)]))
-	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_8']))
-	
-	GAME:WaitFrames(10)
-	
-	--name entry
-	UI:ResetSpeaker()
-	local ch = false
-	local name = ""
-	while not ch do
-		name = ""
-		while name == "" do
-		UI:NameMenu(STRINGS:Format(STRINGS.MapStrings['Name_Prompt']), "")
-		UI:WaitForChoice()
-		name = UI:ChoiceResult()
+		GAME:FadeOut(false, 60)
+
+		SV.Cutscene.ProgressFlag = 2
+		GAME:EnterGroundMap("sunset_view", "Entrance", true)
+
+	elseif SV.Cutscene.ProgressFlag == 2 then -- partner talks about bubbles
+
+		--back to partner
+		GROUND:TeleportTo(partner, cam.Position.X, cam.Position.Y, Direction.Up)
+
+		ExplorerEssentials.SpawnBubbles(3)
+		GAME:FadeIn(60)
+		GAME:WaitFrames(60)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Normal")
+		
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_2'], _DATA:GetMonster("krabby"):GetColoredName()))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_3_'..tostring(pTalkKind)]))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_4_'..tostring(pTalkKind)]))
+		
+		GAME:FadeOut(false, 60)
+
+		SV.Cutscene.ProgressFlag = 3
+		GAME:EnterGroundMap("sunset_view", "Entrance", true)
+
+	elseif SV.Cutscene.ProgressFlag == 3 then -- partner finds hero
+
+		SV.Cutscene.ProgressFlag = 0 -- reset flag for future cutscenes
+		
+		--partner exposition
+		GROUND:TeleportTo(partner, cam.Position.X, cam.Position.Y, Direction.Up)
+
+		ExplorerEssentials.SpawnBubbles(3)
+		GAME:FadeIn(60)
+		GAME:WaitFrames(60)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Normal")
+
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_5']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_6_'..tostring(pTalkKind)]))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_7']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_8_'..tostring(pTalkKind)]))
+		
+		--bgm fade out
+		local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
+		local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
+		
+		GAME:WaitFrames(30)
+		
+		SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+		GROUND:CharSetEmote(partner, "notice", 1)
+		
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_9']))
+		
+		--partner notices something
+		local marker = MRKR("C1S1_PlayerSpawn")
+		GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Right)
+		GROUND:Unhide("PLAYER")
+		GROUND:CharSetAnim(player, "Laying", true)
+		
+		local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(cam.Position.X - 60, cam.Position.Y, 60, false) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 1) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		SOUND:PlayBattleSE("EVT_Emote_Startled")
+		GROUND:CharSetEmote(partner, "shock", 1)
+		CharacterActions.ScaredJump(partner, Direction.Left)
+		
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_10']))
+		
+		local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 20, cam.Position.Y, 60, false) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 2) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		CharacterActions.HopTwice(partner, Direction.Left)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_11']))
+		
+		--partner wakes up hero
+		GROUND:CharSetDrawEffect(player, DrawEffect.Shaking)
+		GAME:WaitFrames(10)
+		GROUND:CharEndDrawEffect(player, DrawEffect.Shaking)
+		
+		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		UI:SetSpeakerEmotion("Pain")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_1']))
+		
+		local coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_2'])) end)
+		local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
+													GROUND:CharSetDrawEffect(player, DrawEffect.Shaking)
+													GAME:WaitFrames(20)
+													GROUND:CharEndDrawEffect(player, DrawEffect.Shaking) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		GROUND:CharWaitAnim(player, "Wake")
+		GAME:WaitFrames(30)
+		GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+		
+		SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+		GROUND:CharSetEmote(partner, "exclaim", 1)
+		GAME:WaitFrames(30)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_12_'..tostring(pTalkKind)]))
+		
+		GAME:WaitFrames(10)
+		
+		local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Left, 4) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Walk", Direction.Left, Direction.Right, 32, 1, 1) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		GAME:WaitFrames(15)
+		GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
+		GAME:WaitFrames(30)
+		GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+		GAME:WaitFrames(45)
+		
+		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_3']))
+		
+		GAME:WaitFrames(10)
+		GROUND:CharTurnToCharAnimated(player, partner, 4, true)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_13_'..tostring(pTalkKind)]))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_14_'..tostring(pTalkKind)]))
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_4']))
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_15_'..tostring(pTalkKind)], partner:GetDisplayName()))
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_16_'..tostring(pTalkKind)]))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_17_'..tostring(pTalkKind)]))
+		
+		GAME:WaitFrames(15)
+		GROUND:CharSetAnim(player, "Walk", true)
+		GAME:WaitFrames(45)
+		GROUND:CharEndAnim(player)
+		GAME:WaitFrames(30)
+		
+		SOUND:PlayBattleSE("EVT_Emote_Startled")
+		CharacterActions.ScaredJump(partner, Direction.Left)
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_18_'..tostring(pTalkKind)]))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_19'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
+		
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
+		GAME:WaitFrames(30)
+		GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+		GAME:WaitFrames(45)
+		GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
+		GAME:WaitFrames(30)
+		GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
+		GAME:WaitFrames(45)
+		
+		SOUND:PlayBattleSE("EVT_Emote_Shock")
+		GROUND:CharSetEmote(player, "shock", 1)
+		GAME:WaitFrames(30)
+		
+		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_5']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_6'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
+		
+		GAME:WaitFrames(15)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_7']))
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_20']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_21']))
+		
+		SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised")
+		GROUND:CharSetEmote(player, "shock", 1)
+		GAME:WaitFrames(30)
+		CharacterActions.ShakeHead(player, Direction.Right)
+		GAME:WaitFrames(30)
+		
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_22']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_23_'..tostring(pTalkKind)]))
+		
+		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_8']))
+		
+		GAME:WaitFrames(10)
+		
+		--name entry
+		UI:ResetSpeaker()
+		local ch = false
+		local name = ""
+		while not ch do
+			name = ""
+			while name == "" do
+			UI:NameMenu(STRINGS:Format(STRINGS.MapStrings['Name_Prompt']), "")
+			UI:WaitForChoice()
+			name = UI:ChoiceResult()
+			end
+		
+			GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
+			UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Name_Confirm'], player:GetDisplayName()), true)
+			UI:WaitForChoice()
+			ch = UI:ChoiceResult()
 		end
-	
-		GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
-		UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Name_Confirm'], player:GetDisplayName()), true)
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_24_'..tostring(pTalkKind)], player:GetDisplayName()))
+		
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_25']))
+		
+		GAME:WaitFrames(15)
+		SOUND:PlayBattleSE("EVT_Emote_Sweating")
+		GROUND:CharSetEmote(partner, "sweating", 1)
+		
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_26']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_27']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_28_'..tostring(pTalkKind)]))
+		
+		--setup koffing, zubat, and relic fragment
+		local koffing = CH('Koffing')
+		local zubat = CH('Zubat')
+		local relic = OBJ('RelicFragment')
+		
+		GROUND:TeleportTo(koffing, cam.Position.X, cam.Position.Y + 32, Direction.Left)
+		GROUND:TeleportTo(zubat, cam.Position.X, cam.Position.Y, Direction.Left)
+		
+		local coro1 = TASK:BranchCoroutine(function() GAME:WaitFrames(5) --koffing
+													GROUND:MoveInDirection(koffing, Direction.Left, 64, false, 2) end) 
+		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(zubat, Direction.Left, 64, false, 2) --zubat
+													GROUND:CharWaitAnim(zubat, "Attack")
+													SOUND:PlayBattleSE("EVT_Tackle") end) 
+		local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) --player
+													SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+													GROUND:CharSetEmote(player, "exclaim", 1) end)
+		TASK:JoinCoroutines({coro1, coro2, coro3})
+		
+		local coro1 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Hurt", Direction.Left, Direction.Left, 17, 1, 4) --partner
+													GROUND:CharSetEmote(partner, "shock", 1)
+													GROUND:CharSetAction(partner, RogueEssence.Ground.PoseGroundAction(partner.Position, partner.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain"))) end) 
+		local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(15) --player
+													GROUND:AnimateInDirection(player, "Walk", Direction.Right, Direction.Left, 8, 1, 4) end) 
+		local coro3 = TASK:BranchCoroutine(function() GROUND:TeleportTo(relic, partner.Position.X, partner.Position.Y, Direction.Down) --relic fragment
+													GROUND:MoveObjectToPosition(relic, koffing.Position.X - 48, koffing.Position.Y - 8, 4) end)
+		local coro4 = TASK:BranchCoroutine(function() UI:SetSpeakerEmotion("Shouting") --dialogue
+													UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_29_'..tostring(pTalkKind)])) end)
+		TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(koffing)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_1']))
+		
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(partner, Direction.Right, 1)
+		SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+		GROUND:CharSetEmote(partner, "angry", -1)
+		GROUND:CharSetAnim(partner, "None", false)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Angry")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_30']))
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(zubat)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_1']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_2']))
+		
+		GROUND:CharSetEmote(partner, "none", 1)
+		CharacterActions.ScaredJump(partner, Direction.Right)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_31']))
+		
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(zubat, Direction.DownLeft, 4)
+		UI:SetSpeaker(zubat)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_3']))
+		
+		local coro1 = TASK:BranchCoroutine(function() GAME:WaitFrames(5) --player
+													GROUND:CharAnimateTurnTo(player, Direction.DownRight, 4) end) 
+		local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4) --partner
+													SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+													GROUND:CharSetEmote(partner, "exclaim", 1)
+													GAME:WaitFrames(30) end) 
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_32_'..tostring(pTalkKind)]))
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(zubat)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_4']))
+		
+		local origX = zubat.Position.X
+		local origY = zubat.Position.Y
+		
+		GAME:WaitFrames(15)
+		GROUND:MoveToPosition(zubat, relic.Position.X, relic.Position.Y + 1, false, 1)
+		GAME:WaitFrames(15)
+		GROUND:Hide("RelicFragment")
+		
+		local coro1 = TASK:BranchCoroutine(function() GROUND:AnimateToPosition(zubat, "Walk", Direction.DownLeft, origX, origY, 1, 1, 0) --zubat
+													GROUND:CharAnimateTurnTo(zubat, Direction.Left, 4)
+													GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
+													GROUND:CharAnimateTurnTo(partner, Direction.Right, 4) end) 
+		local coro2 = TASK:BranchCoroutine(function() SOUND:PlayBattleSE("EVT_Emote_Shock")
+													GROUND:CharSetEmote(partner, "shock", 1)
+													UI:SetSpeaker(partner)
+													UI:SetSpeakerEmotion("Surprised")
+													UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_33'])) end) 
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(koffing)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_2']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_3']))
+		
+		local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(zubat, koffing, 8, true) end) 
+		local coro2 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(koffing, zubat, 8, true) end) 
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_4']))
+		
+		local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(zubat, Direction.Left, 4) end) 
+		local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(koffing, Direction.Left, 4) end) 
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(zubat)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_5']))
+		
+		local posx = 0
+		local posy = 0	
+		
+		local coro1 = TASK:BranchCoroutine(function() posx = koffing.Position.X - 16 --koffing
+													posy = koffing.Position.Y + 16
+													GROUND:MoveToPosition(koffing, posx, posy, false, 1) 
+													GROUND:MoveToPosition(koffing, koffing.Position.X - 240, koffing.Position.Y, false, 1)
+													GROUND:Hide("Koffing") end) 
+		local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
+													posx = zubat.Position.X - 48 --zubat
+													posy = zubat.Position.Y + 48
+													GROUND:MoveToPosition(zubat, posx, posy, false, 1) 
+													GROUND:MoveToPosition(zubat, zubat.Position.X - 240, zubat.Position.Y, false, 1)
+													GROUND:Hide("Zubat")
+													continue = true end)
+		local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(40) --player turn to people leaving
+													GROUND:CharAnimateTurnTo(player, Direction.DownLeft, 60) end) 
+		local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) --partner turn to people leaving
+													GROUND:CharAnimateTurnTo(partner, Direction.DownLeft, 60) end) 
+		TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+		
+		GAME:WaitFrames(60)
+		
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Sad")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_34']))
+		
+		GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_35']))
+		
+		GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_36']))
+		
+		UI:SetSpeakerEmotion("Teary-Eyed")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_37']))
+		
+		CharacterActions.ShakeHead(partner, Direction.Left)
+		GAME:WaitFrames(30)
+		
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_38']))
+		
+		--begin dialogue choices
+		local continue = false
+		local choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_1']),
+			STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_2']),
+			STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_3'])}
+		
+		UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_39_'..tostring(pTalkKind)]), choices, 1, 3)
 		UI:WaitForChoice()
-		ch = UI:ChoiceResult()
-	end
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_24_'..tostring(pTalkKind)], player:GetDisplayName()))
-	
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_25']))
-	
-	GAME:WaitFrames(15)
-	SOUND:PlayBattleSE("EVT_Emote_Sweating")
-	GROUND:CharSetEmote(partner, "sweating", 1)
-	
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_26']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_27']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_28_'..tostring(pTalkKind)]))
-	
-	--setup koffing, zubat, and relic fragment
-	local koffing = CH('Koffing')
-	local zubat = CH('Zubat')
-	local relic = OBJ('RelicFragment')
-	
-	GROUND:TeleportTo(koffing, cam.Position.X, cam.Position.Y + 32, Direction.Left)
-	GROUND:TeleportTo(zubat, cam.Position.X, cam.Position.Y, Direction.Left)
-	
-	local coro1 = TASK:BranchCoroutine(function() GAME:WaitFrames(5) --koffing
-												GROUND:MoveInDirection(koffing, Direction.Left, 64, false, 2) end) 
-	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(zubat, Direction.Left, 64, false, 2) --zubat
-												GROUND:CharWaitAnim(zubat, "Attack")
-												SOUND:PlayBattleSE("EVT_Tackle") end) 
-	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) --player
-												SOUND:PlayBattleSE("EVT_Emote_Exclaim")
-												GROUND:CharSetEmote(player, "exclaim", 1) end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
-	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Hurt", Direction.Left, Direction.Left, 17, 1, 4) --partner
-												GROUND:CharSetEmote(partner, "shock", 1)
-												GROUND:CharSetAction(partner, RogueEssence.Ground.PoseGroundAction(partner.Position, partner.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain"))) end) 
-	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(15) --player
-												GROUND:AnimateInDirection(player, "Walk", Direction.Right, Direction.Left, 8, 1, 4) end) 
-	local coro3 = TASK:BranchCoroutine(function() GROUND:TeleportTo(relic, partner.Position.X, partner.Position.Y, Direction.Down) --relic fragment
-												GROUND:MoveObjectToPosition(relic, koffing.Position.X - 48, koffing.Position.Y - 8, 4) end)
-	local coro4 = TASK:BranchCoroutine(function() UI:SetSpeakerEmotion("Shouting") --dialogue
-												UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_29_'..tostring(pTalkKind)])) end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(koffing)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_1']))
-	
-	GAME:WaitFrames(10)
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 1)
-	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
-	GROUND:CharSetEmote(partner, "angry", -1)
-	GROUND:CharSetAnim(partner, "None", false)
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Angry")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_30']))
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(zubat)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_1']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_2']))
-	
-	GROUND:CharSetEmote(partner, "none", 1)
-	CharacterActions.ScaredJump(partner, Direction.Right)
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_31']))
-	
-	GAME:WaitFrames(10)
-	GROUND:CharAnimateTurnTo(zubat, Direction.DownLeft, 4)
-	UI:SetSpeaker(zubat)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_3']))
-	
-	local coro1 = TASK:BranchCoroutine(function() GAME:WaitFrames(5) --player
-												GROUND:CharAnimateTurnTo(player, Direction.DownRight, 4) end) 
-	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4) --partner
-												SOUND:PlayBattleSE("EVT_Emote_Exclaim")
-												GROUND:CharSetEmote(partner, "exclaim", 1)
-												GAME:WaitFrames(30) end) 
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_32_'..tostring(pTalkKind)]))
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(zubat)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_4']))
-	
-	local origX = zubat.Position.X
-	local origY = zubat.Position.Y
-	
-	GAME:WaitFrames(15)
-	GROUND:MoveToPosition(zubat, relic.Position.X, relic.Position.Y + 1, false, 1)
-	GAME:WaitFrames(15)
-	GROUND:Hide("RelicFragment")
-	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:AnimateToPosition(zubat, "Walk", Direction.DownLeft, origX, origY, 1, 1, 0) --zubat
-												GROUND:CharAnimateTurnTo(zubat, Direction.Left, 4)
-												GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
-												GROUND:CharAnimateTurnTo(partner, Direction.Right, 4) end) 
-	local coro2 = TASK:BranchCoroutine(function() SOUND:PlayBattleSE("EVT_Emote_Shock")
-												GROUND:CharSetEmote(partner, "shock", 1)
-												UI:SetSpeaker(partner)
-												UI:SetSpeakerEmotion("Surprised")
-												UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_33'])) end) 
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(koffing)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_2']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_3']))
-	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(zubat, koffing, 8, true) end) 
-	local coro2 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(koffing, zubat, 8, true) end) 
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Koffing_4']))
-	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(zubat, Direction.Left, 4) end) 
-	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(koffing, Direction.Left, 4) end) 
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(zubat)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Zubat_5']))
-	
-	local posx = 0
-	local posy = 0	
-	
-	local coro1 = TASK:BranchCoroutine(function() posx = koffing.Position.X - 16 --koffing
-												posy = koffing.Position.Y + 16
-												GROUND:MoveToPosition(koffing, posx, posy, false, 1) 
-												GROUND:MoveToPosition(koffing, koffing.Position.X - 240, koffing.Position.Y, false, 1)
-												GROUND:Hide("Koffing") end) 
-	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
-												posx = zubat.Position.X - 48 --zubat
-												posy = zubat.Position.Y + 48
-												GROUND:MoveToPosition(zubat, posx, posy, false, 1) 
-												GROUND:MoveToPosition(zubat, zubat.Position.X - 240, zubat.Position.Y, false, 1)
-												GROUND:Hide("Zubat")
-												continue = true end)
-	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(40) --player turn to people leaving
-												GROUND:CharAnimateTurnTo(player, Direction.DownLeft, 60) end) 
-	local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) --partner turn to people leaving
-												GROUND:CharAnimateTurnTo(partner, Direction.DownLeft, 60) end) 
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
-	
-	GAME:WaitFrames(60)
-	
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Sad")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_34']))
-	
-	GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_35']))
-	
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_36']))
-	
-	UI:SetSpeakerEmotion("Teary-Eyed")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_37']))
-	
-	CharacterActions.ShakeHead(partner, Direction.Left)
-	GAME:WaitFrames(30)
-	
-	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_38']))
-	
-	--begin dialogue choices
-	local continue = false
-	local choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_1']),
-           STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_2']),
-           STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_3'])}
-	
-	UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_39_'..tostring(pTalkKind)]), choices, 1, 3)
-	UI:WaitForChoice()
-	result = UI:ChoiceResult()
-	
-	while not continue do
-		--A
-		if result == 1 then --yes
-			continue = true
-			
-			CharacterActions.HopTwice(partner, Direction.Left)
-			
-			UI:SetSpeakerEmotion("Inspired")
-			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_40A']))
-			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_41A_'..tostring(pTalkKind)]))
-			
-			--leave for dungeon
-			local coro1 = TASK:BranchCoroutine(function() posx = partner.Position.X - 48 --partner
-												posy = partner.Position.Y + 48
-												GROUND:MoveToPosition(partner, posx, posy, false, 1) 
-												GROUND:MoveToPosition(partner, partner.Position.X - 140, partner.Position.Y, false, 1)
-												GROUND:Hide("PARTNER") end) 
-			local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60)
-												posx = player.Position.X - 48 --player
-												posy = player.Position.Y + 48
-												GROUND:MoveToPosition(player, posx, posy, false, 1) 
-												GROUND:MoveToPosition(player, player.Position.X - 140, player.Position.Y, false, 1)
-												GROUND:Hide("PLAYER") end)
-			TASK:JoinCoroutines({coro1, coro2})
-			
-		--B
-		elseif result == 2 then --no
+		result = UI:ChoiceResult()
 		
-			CharacterActions.ScaredJump(partner, Direction.Left)
-			
-			UI:SetSpeakerEmotion("Surprised")
-			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_40B_'..tostring(pTalkKind)]))
-			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_41B_'..tostring(pTalkKind)]))
-			UI:SetSpeakerEmotion("Teary-Eyed")
-			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_42B']))
-			
-			CharacterActions.HopTwice(partner, Direction.Left)
-			
-			--back to choices
-			UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_43B_'..tostring(pTalkKind)]), choices, 1, 3)
-			UI:WaitForChoice()
-			result = UI:ChoiceResult()
-			
-		else --other
-		
-			--new choice menu
-			choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_4']),
-			STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_5'])}
-			
-			UI:SetSpeakerEmotion("Worried")
-			UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_44B_'..tostring(pTalkKind)]), choices, 1, 2)
-			UI:WaitForChoice()
-			result = UI:ChoiceResult() --1 should never be checked for as choice 1 is ALWAYS yes
-			
-			if result == 2 then
-				
-				SOUND:PlayBattleSE("EVT_Emote_Sweating")
-				GROUND:CharSetEmote(partner, "sweating", 1)
-				
-				UI:SetSpeakerEmotion("Worried")
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_45B']))
-				
-				GROUND:CharSetDrawEffect(partner, DrawEffect.Shaking)
-				
-				UI:SetSpeakerEmotion("Teary-Eyed")
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_46B']))
-				
-				GROUND:CharEndDrawEffect(partner, DrawEffect.Shaking)
+		while not continue do
+			--A
+			if result == 1 then --yes
+				continue = true
 				
 				CharacterActions.HopTwice(partner, Direction.Left)
 				
+				UI:SetSpeakerEmotion("Inspired")
+				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_40A']))
+				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_41A_'..tostring(pTalkKind)]))
+				
+				--leave for dungeon
+				local coro1 = TASK:BranchCoroutine(function() posx = partner.Position.X - 48 --partner
+													posy = partner.Position.Y + 48
+													GROUND:MoveToPosition(partner, posx, posy, false, 1) 
+													GROUND:MoveToPosition(partner, partner.Position.X - 140, partner.Position.Y, false, 1)
+													GROUND:Hide("PARTNER") end) 
+				local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60)
+													posx = player.Position.X - 48 --player
+													posy = player.Position.Y + 48
+													GROUND:MoveToPosition(player, posx, posy, false, 1) 
+													GROUND:MoveToPosition(player, player.Position.X - 140, player.Position.Y, false, 1)
+													GROUND:Hide("PLAYER") end)
+				TASK:JoinCoroutines({coro1, coro2})
+				
+			--B
+			elseif result == 2 then --no
+			
+				CharacterActions.ScaredJump(partner, Direction.Left)
+				
+				UI:SetSpeakerEmotion("Surprised")
+				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_40B_'..tostring(pTalkKind)]))
+				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_41B_'..tostring(pTalkKind)]))
+				UI:SetSpeakerEmotion("Teary-Eyed")
+				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_42B']))
+				
+				CharacterActions.HopTwice(partner, Direction.Left)
+				
+				--back to choices
+				UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_43B_'..tostring(pTalkKind)]), choices, 1, 3)
+				UI:WaitForChoice()
+				result = UI:ChoiceResult()
+				
+			else --other
+			
 				--new choice menu
 				choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_4']),
-				STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_6'])}
-			
-				UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_47B_'..tostring(pTalkKind)]), choices, 1, 2)
+				STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_5'])}
+				
+				UI:SetSpeakerEmotion("Worried")
+				UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_44B_'..tostring(pTalkKind)]), choices, 1, 2)
 				UI:WaitForChoice()
 				result = UI:ChoiceResult() --1 should never be checked for as choice 1 is ALWAYS yes
-			
+				
 				if result == 2 then
 					
+					SOUND:PlayBattleSE("EVT_Emote_Sweating")
+					GROUND:CharSetEmote(partner, "sweating", 1)
+					
 					UI:SetSpeakerEmotion("Worried")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_48B']))
+					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_45B']))
+					
+					GROUND:CharSetDrawEffect(partner, DrawEffect.Shaking)
+					
+					UI:SetSpeakerEmotion("Teary-Eyed")
+					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_46B']))
+					
+					GROUND:CharEndDrawEffect(partner, DrawEffect.Shaking)
+					
+					CharacterActions.HopTwice(partner, Direction.Left)
 					
 					--new choice menu
 					choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_4']),
-					STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_7'])}
-			
-					UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_49B']), choices, 1, 2)
+					STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_6'])}
+				
+					UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_47B_'..tostring(pTalkKind)]), choices, 1, 2)
 					UI:WaitForChoice()
 					result = UI:ChoiceResult() --1 should never be checked for as choice 1 is ALWAYS yes
-			
+				
 					if result == 2 then
 						
-						SOUND:PlayBattleSE("EVT_Emote_Complain_2")
-						GROUND:CharSetEmote(partner, "angry", -1)
-						CharacterActions.HopTwice(partner, Direction.Left)
+						UI:SetSpeakerEmotion("Worried")
+						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_48B']))
 						
 						--new choice menu
 						choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_4']),
-						STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_8'])}
-			
-						UI:SetSpeakerEmotion("Angry")
-						UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_50B']), choices, 1, 2)
+						STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_7'])}
+				
+						UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_49B']), choices, 1, 2)
 						UI:WaitForChoice()
-						
-						result = 1 --getting result doesn't matter here as both options force you into yes
-						GROUND:CharSetEmote(partner, "none", 1)
+						result = UI:ChoiceResult() --1 should never be checked for as choice 1 is ALWAYS yes
+				
+						if result == 2 then
+							
+							SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+							GROUND:CharSetEmote(partner, "angry", -1)
+							CharacterActions.HopTwice(partner, Direction.Left)
+							
+							--new choice menu
+							choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_4']),
+							STRINGS:Format(STRINGS.MapStrings['CH1_S1_Option_8'])}
+				
+							UI:SetSpeakerEmotion("Angry")
+							UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_50B']), choices, 1, 2)
+							UI:WaitForChoice()
+							
+							result = 1 --getting result doesn't matter here as both options force you into yes
+							GROUND:CharSetEmote(partner, "none", 1)
+							
+						end
 						
 					end
 					
 				end
-				
+			
 			end
-		
 		end
+		
+		local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end) 
+		local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 60) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
+		--enter dungeon
+		GAME:WaitFrames(60)
+		GAME:CutsceneMode(false)
+		GAME:EnterZone('beach_cave', 0, 0, 0)
+		
+		--debug end
+		--GAME:FadeIn(1)
+		--GAME:CutsceneMode(false)
+		--GROUND:Unhide("PLAYER")
+
+	
 	end
-	
-	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end) 
-	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 60) end)
-	TASK:JoinCoroutines({coro1, coro2})
-	
-	--enter dungeon
-	GAME:WaitFrames(60)
-	GAME:CutsceneMode(false)
-	GAME:EnterZone('beach_cave', 0, 0, 0)
-	
-	--debug end
-	--GAME:FadeIn(1)
-	--GAME:CutsceneMode(false)
-	--GROUND:Unhide("PLAYER")
 	
 end
 
@@ -814,6 +820,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 		if result == 1 then --yes
 			continue = true
 
+			UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 			UI:SetSpeakerEmotion("Worried")			
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_11A']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_12A']))
@@ -832,7 +839,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_35A_'..tostring(pTalkKind)]))
 			GROUND:CharAnimateTurn(partner, Direction.UpRight, 4, true)
-			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_36A_'..tostring(pTalkKind)], _DATA:GetMonster("wigglytuff"):GetColoredName()))
+			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_36A_'..tostring(pTalkKind)], CH('Wigglytuff'):GetDisplayName())) --uses a dummy character since wigglytuff isn't in this scene
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_37A_'..tostring(pTalkKind)]))
 			GROUND:CharAnimateTurn(partner, Direction.Right, 4, true)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_38A_'..tostring(pTalkKind)]))
@@ -841,14 +848,23 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_39A_'..tostring(pTalkKind)], player:GetDisplayName()))
 			GROUND:CharAnimateTurn(partner, Direction.Down, 4, true)
 			GROUND:CharAnimateTurn(player, Direction.Down, 4, true)
-			--future raise your hand emote here
-			GROUND:CharSetEmote(player, "glowing", 1)
-			GROUND:CharSetEmote(partner, "glowing", 1)
-			GAME:WaitFrames(120)
+			
+			GAME:WaitFrames(60)
+
+			--pose
+			local coro1 = TASK:BranchCoroutine(function() GROUND:CharSetAction(player, RogueEssence.Ground.PoseGroundAction(player.Position, player.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+			local coro2 = TASK:BranchCoroutine(function() GROUND:CharSetAction(partner, RogueEssence.Ground.PoseGroundAction(partner.Position, partner.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end)
+			TASK:JoinCoroutines({coro1, coro2})
+
+			GAME:WaitFrames(180)
 		--B
 		elseif result == 2 then --no
 		
+			UI:SetSpeaker(partner)
+			UI:SetSpeakerEmotion("Surprised")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_32B_'..tostring(pTalkKind)]))
+
+			UI:SetSpeakerEmotion("Sad")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_33B'], player:GetDisplayName()))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_34B_'..tostring(pTalkKind)], CH('Koffing'):GetDisplayName()))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_35B'], player:GetDisplayName()))
@@ -861,20 +877,26 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 			
 		else --other
 		
+			UI:SetSpeaker(partner)
+			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_38B']))
 		
 			--new choice menu
 			choices = {STRINGS:Format(STRINGS.MapStrings['CH1_S3_Option_4'])}
 			
-			UI:SetSpeakerEmotion("Worried")
 			UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_39B']), choices, 1, 1)
 			UI:WaitForChoice()
 			--there's only one option here so we don't need to check the result
 			
+			UI:SetSpeakerEmotion("Surprised")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_40B']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_41B_'..tostring(pTalkKind)]))
+
+			UI:SetSpeakerEmotion("Sad")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_42B']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_43B'], player:GetDisplayName()))
+
+			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_44B'], CH('Koffing'):GetDisplayName()))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_45B']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_46B'], player:GetDisplayName()))
