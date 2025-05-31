@@ -267,10 +267,10 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Zubat_3']))
 	
 	--nod
-	local coro1 = TASK:BranchCoroutine(function() GROUND:CharSetAnim(koffing, "Nod", false)
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharWaitAnim(koffing, "Nod")
 										GAME:WaitFrames(45)
 										GROUND:MoveInDirection(koffing, Direction.Down, 180, false, 1)	end)
-	local coro2 = TASK:BranchCoroutine(function() GROUND:CharSetAnim(zubat, "Nod", false)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharWaitAnim(zubat, "Nod")
 										GAME:WaitFrames(45)
 										GAME:WaitFrames(10)
 										GROUND:MoveInDirection(zubat, Direction.Down, 180, false, 1)	end)

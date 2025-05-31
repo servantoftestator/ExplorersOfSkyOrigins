@@ -128,3 +128,15 @@ function CharacterActions.LookAround(ent)
 		GAME:WaitFrames(15)
 	end
 end
+
+function CharacterActions.DizzyFade()
+	local coro1 = TASK:BranchCoroutine(function() -- start fading out
+		GAME:FadeOut(false, 30) 
+	end) 
+	local coro2 = TASK:BranchCoroutine(function() -- fade back in mid-fade out
+		GAME:WaitFrames(15)
+		GAME:FadeIn(15) 
+	end)
+	
+	TASK:JoinCoroutines({coro1, coro2})
+end

@@ -91,7 +91,7 @@ function storm_cutscene_a.Enter(map)
   GAME:FadeIn(1)
   GAME:WaitFrames(5)
 
-GAME:WaitFrames(30)
+GAME:WaitFrames(15)
 
 --lightning sfx
 SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")

@@ -335,10 +335,14 @@ function beach_cave_pit.BossDefeated()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_1']))
 	
 	GAME:FadeOut(false, 60)
+
+	GROUND:CharSetAnim(koffing, "Normal", true)
+	GROUND:CharSetAnim(zubat, "Normal", true)
+
 	GAME:WaitFrames(30)
 	GAME:FadeIn(30)
-	--GROUND:CharSetAnim(koffing, "Normal", true)
-	--GROUND:CharSetAnim(zubat, "Normal", true)
+
+	GAME:WaitFrames(30)
 
 	UI:SetSpeaker(koffing)
 	UI:SetSpeakerEmotion("Normal")

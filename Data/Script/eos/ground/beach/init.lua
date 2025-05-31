@@ -130,7 +130,7 @@ function beach.HeroPassesOut()
 		
 	GAME:WaitFrames(40)
 		
-	UI:WaitShowBG("OceanView", 25, 120)
+	UI:WaitShowBG("OceanView", 5, 120)
     
 	GAME:WaitFrames(60)
 		
@@ -148,6 +148,14 @@ function beach.HeroPassesOut()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_7']))
 		
 	GAME:WaitFrames(30)
+
+	CharacterActions.DizzyFade()
+
+	GAME:WaitFrames(15)
+
+	CharacterActions.DizzyFade()
+
+	GAME:WaitFrames(60)
 		
 	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 150) end)
 	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 150) end)
