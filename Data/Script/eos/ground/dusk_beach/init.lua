@@ -143,6 +143,10 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GROUND:MoveToPosition(partner, cam.Position.X, marker.Position.Y, false, 1)
 	
 		GAME:WaitFrames(10)
+
+		GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+
+		GAME:WaitFrames(10)
 	
 		UI:SetSpeaker(partner)
 		UI:SetSpeakerEmotion("Inspired")
